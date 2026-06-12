@@ -72,6 +72,15 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
       }
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
     </style>
   </head>
   <body class="antialiased selection:bg-orange/20 selection:text-orange-deep">
@@ -104,14 +113,14 @@
       </div>
 
       <!-- ============ INTERACTIVE TAB NAVIGATION ============ -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12 border-b border-ink/10 pb-8">
-        <button onclick="switchTab('concepts')" id="tab-btn-concepts" class="tab-btn active px-6 py-3.5 rounded-full border border-ink/15 text-xs font-mono uppercase tracking-wider font-bold cursor-pointer transition-all duration-200 hover:border-ink">
+      <div class="flex overflow-x-auto no-scrollbar justify-start md:justify-center gap-3 mb-12 border-b border-ink/10 pb-8 -mx-6 px-6 md:mx-0 md:px-0">
+        <button onclick="switchTab('concepts')" id="tab-btn-concepts" class="tab-btn active shrink-0 px-4 md:px-6 py-2.5 md:py-3.5 rounded-full border border-ink/15 text-[10px] md:text-xs font-mono uppercase tracking-wider font-bold cursor-pointer transition-all duration-200 hover:border-ink">
           1. Homepage Concepts
         </button>
-        <button onclick="switchTab('subpages')" id="tab-btn-subpages" class="tab-btn px-6 py-3.5 rounded-full border border-ink/15 text-xs font-mono uppercase tracking-wider font-bold cursor-pointer transition-all duration-200 hover:border-ink">
+        <button onclick="switchTab('subpages')" id="tab-btn-subpages" class="tab-btn shrink-0 px-4 md:px-6 py-2.5 md:py-3.5 rounded-full border border-ink/15 text-[10px] md:text-xs font-mono uppercase tracking-wider font-bold cursor-pointer transition-all duration-200 hover:border-ink">
           2. Pages & Features
         </button>
-        <button onclick="switchTab('design')" id="tab-btn-design" class="tab-btn px-6 py-3.5 rounded-full border border-ink/15 text-xs font-mono uppercase tracking-wider font-bold cursor-pointer transition-all duration-200 hover:border-ink">
+        <button onclick="switchTab('design')" id="tab-btn-design" class="tab-btn shrink-0 px-4 md:px-6 py-2.5 md:py-3.5 rounded-full border border-ink/15 text-[10px] md:text-xs font-mono uppercase tracking-wider font-bold cursor-pointer transition-all duration-200 hover:border-ink">
           3. Website Design Guide
         </button>
       </div>
@@ -260,20 +269,20 @@
             Beyond the three homepage layouts, the entire site structure has been upgraded to a strict commercial prototype standard, separating business channels and implementing retail optimization. Click any title to open the page.
           </p>
 
-          <div class="grid md:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             
-            <!-- Item 1: Bakery Store -->
-            <div onclick="window.location.href='bakery8.html'" class="border-b border-ink/10 pb-8 md:border-b-0 md:pb-0 md:border-r md:pr-8 flex gap-4 cursor-pointer group hover:bg-cream/40 p-4 rounded-2xl transition-all duration-200">
+            <!-- Card 1: Bakery Catalog -->
+            <div onclick="window.location.href='bakery8.html'" class="bg-paper border border-ink/5 p-6 rounded-3xl cursor-pointer group transition-all duration-200 flex gap-4 card-hover">
               <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-orange text-2xl shrink-0 group-hover:bg-orange/10 transition-colors">
                 <iconify-icon icon="ph:storefront-bold"></iconify-icon>
               </div>
-              <div>
+              <div class="flex-1">
                 <h3 class="text-lg font-bold text-ink mb-2 font-display group-hover:text-orange transition-colors flex items-center gap-1.5">
                   Bakery Catalog
                   <iconify-icon icon="ph:arrow-right-bold" class="text-sm"></iconify-icon>
                 </h3>
                 <p class="text-sm text-ink-2 leading-relaxed mb-3">
-                  E-commerce standard product showcase representing 23 items. Features studio-lit renders sitting on a solid, snap-to-white (#FFFFFF) background with local soft shadows. <span class="text-xs font-semibold block mt-1.5 text-orange-deep">Note: Although the team is not ready for a full e-commerce built site, hosting on WordPress will make it easy to manage products and transition to active selling when the business is ready.</span>
+                  E-commerce standard product showcase representing 23 items. Features studio-lit renders sitting on a solid, snap-to-white (#FFFFFF) background with local soft shadows. <span class="text-xs font-semibold block mt-1.5 text-orange-deep">Note: WordPress will make it easy to manage products and transition to active selling when the business is ready.</span>
                 </p>
                 <div class="flex flex-wrap gap-2">
                   <span class="bg-cream text-ink font-mono text-[9px] px-2.5 py-1 rounded">No-border layout</span>
@@ -283,12 +292,12 @@
               </div>
             </div>
 
-            <!-- Item 2: Convenience Store -->
-            <div onclick="window.location.href='convenience8.html'" class="flex gap-4 cursor-pointer group hover:bg-cream/40 p-4 rounded-2xl transition-all duration-200">
+            <!-- Card 2: Convenience Store -->
+            <div onclick="window.location.href='convenience8.html'" class="bg-paper border border-ink/5 p-6 rounded-3xl cursor-pointer group transition-all duration-200 flex gap-4 card-hover">
               <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-orange text-2xl shrink-0 group-hover:bg-orange/10 transition-colors">
                 <iconify-icon icon="ph:basket-bold"></iconify-icon>
               </div>
-              <div>
+              <div class="flex-1">
                 <h3 class="text-lg font-bold text-ink mb-2 font-display group-hover:text-orange transition-colors flex items-center gap-1.5">
                   Convenience Store
                   <iconify-icon icon="ph:arrow-right-bold" class="text-sm"></iconify-icon>
@@ -304,21 +313,18 @@
               </div>
             </div>
 
-            <!-- Divider (only visible on md up) -->
-            <div class="col-span-2 hidden md:block h-[1px] bg-ink/10 my-2"></div>
-
-            <!-- Item 3: Heritage Timeline & Social Gallery -->
-            <div onclick="window.location.href='about8.html'" class="border-b border-ink/10 pb-8 md:border-b-0 md:pb-0 md:border-r md:pr-8 flex gap-4 cursor-pointer group hover:bg-cream/40 p-4 rounded-2xl transition-all duration-200">
+            <!-- Card 3: Heritage Timeline & Social Gallery -->
+            <div onclick="window.location.href='about8.html'" class="bg-paper border border-ink/5 p-6 rounded-3xl cursor-pointer group transition-all duration-200 flex gap-4 card-hover">
               <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-orange text-2xl shrink-0 group-hover:bg-orange/10 transition-colors">
                 <iconify-icon icon="ph:clock-history-bold"></iconify-icon>
               </div>
-              <div>
+              <div class="flex-1">
                 <h3 class="text-lg font-bold text-ink mb-2 font-display group-hover:text-orange transition-colors flex items-center gap-1.5">
                   Heritage Timeline & Feed
                   <iconify-icon icon="ph:arrow-right-bold" class="text-sm"></iconify-icon>
                 </h3>
                 <p class="text-sm text-ink-2 leading-relaxed mb-3">
-                  Illustrates the history of Zephirin's through historically accurate scenes (1923 bread, 1960 school canteen, 1995 shelf). Features an integrated 10-post Instagram feed gallery linked to `@zephirinsbakeries`. <span class="text-xs font-semibold block mt-1.5 text-orange-deep">Note: Although the business prefers not to mention a lot about heritage, it builds strong confidence internally to trust the Zephirin's brand.</span>
+                  Illustrates the history of Zephirin's through historically accurate scenes (1923 bread, 1960 school canteen, 1995 shelf). Features an instagram-styled feed showing 10 posts linked to `@zephirinsbakeries`. <span class="text-xs font-semibold block mt-1.5 text-orange-deep">Note: Although heritage is not the main focus, it builds strong trust in the Zephirin's brand.</span>
                 </p>
                 <div class="flex flex-wrap gap-2">
                   <span class="bg-cream text-ink font-mono text-[9px] px-2.5 py-1 rounded">Era Illustrations</span>
@@ -328,12 +334,12 @@
               </div>
             </div>
 
-            <!-- Item 4: Where to Find Us -->
-            <div onclick="window.location.href='locator8.html'" class="flex gap-4 cursor-pointer group hover:bg-cream/40 p-4 rounded-2xl transition-all duration-200">
+            <!-- Card 4: Where to Find Us -->
+            <div onclick="window.location.href='locator8.html'" class="bg-paper border border-ink/5 p-6 rounded-3xl cursor-pointer group transition-all duration-200 flex gap-4 card-hover">
               <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-orange text-2xl shrink-0 group-hover:bg-orange/10 transition-colors">
                 <iconify-icon icon="ph:map-trifold-bold"></iconify-icon>
               </div>
-              <div>
+              <div class="flex-1">
                 <h3 class="text-lg font-bold text-ink mb-2 font-display group-hover:text-orange transition-colors flex items-center gap-1.5">
                   Availability & Retailers
                   <iconify-icon icon="ph:arrow-right-bold" class="text-sm"></iconify-icon>
@@ -349,15 +355,12 @@
               </div>
             </div>
 
-            <!-- Divider (only visible on md up) -->
-            <div class="col-span-2 hidden md:block h-[1px] bg-ink/10 my-2"></div>
-
-            <!-- Item 5: Vacancies & Careers -->
-            <div onclick="window.location.href='vacancies8.html'" class="border-b border-ink/10 pb-8 md:border-b-0 md:pb-0 md:border-r md:pr-8 flex gap-4 cursor-pointer group hover:bg-cream/40 p-4 rounded-2xl transition-all duration-200">
+            <!-- Card 5: Vacancies & Careers -->
+            <div onclick="window.location.href='vacancies8.html'" class="bg-paper border border-ink/5 p-6 rounded-3xl cursor-pointer group transition-all duration-200 flex gap-4 card-hover">
               <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-orange text-2xl shrink-0 group-hover:bg-orange/10 transition-colors">
                 <iconify-icon icon="ph:users-three-bold"></iconify-icon>
               </div>
-              <div>
+              <div class="flex-1">
                 <h3 class="text-lg font-bold text-ink mb-2 font-display group-hover:text-orange transition-colors flex items-center gap-1.5">
                   Vacancies & Careers
                   <iconify-icon icon="ph:arrow-right-bold" class="text-sm"></iconify-icon>
@@ -373,12 +376,12 @@
               </div>
             </div>
 
-            <!-- Item 6: Recipes & Cooking -->
-            <div onclick="window.location.href='recipes8.html'" class="flex gap-4 cursor-pointer group hover:bg-cream/40 p-4 rounded-2xl transition-all duration-200">
+            <!-- Card 6: Recipes & Cooking -->
+            <div onclick="window.location.href='recipes8.html'" class="bg-paper border border-ink/5 p-6 rounded-3xl cursor-pointer group transition-all duration-200 flex gap-4 card-hover">
               <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-orange text-2xl shrink-0 group-hover:bg-orange/10 transition-colors">
                 <iconify-icon icon="ph:cooking-pot-bold"></iconify-icon>
               </div>
-              <div>
+              <div class="flex-1">
                 <h3 class="text-lg font-bold text-ink mb-2 font-display group-hover:text-orange transition-colors flex items-center gap-1.5">
                   Recipes & Cooking
                   <iconify-icon icon="ph:arrow-right-bold" class="text-sm"></iconify-icon>
@@ -394,39 +397,42 @@
               </div>
             </div>
 
-            <!-- Divider -->
-            <div class="col-span-2 hidden md:block h-[1px] bg-ink/10 my-2"></div>
-
-            <!-- Item 7: Contact Separation -->
-            <div class="col-span-2 flex flex-col md:flex-row gap-6 p-4 rounded-2xl border border-ink/5 bg-cream/20">
-              <!-- Wholesale Column -->
-              <div onclick="window.location.href='contact8.html'" class="flex gap-4 items-start flex-1 cursor-pointer group hover:bg-cream/40 p-3 rounded-xl transition-all duration-200">
-                <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-orange text-xl shrink-0 group-hover:bg-orange/10 transition-colors">
-                  <iconify-icon icon="ph:briefcase-bold"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-bold text-ink mb-1 font-display group-hover:text-orange transition-colors flex items-center gap-1">
-                    Wholesale Form
-                    <iconify-icon icon="ph:arrow-right-bold" class="text-xs"></iconify-icon>
-                  </h3>
-                  <p class="text-xs text-ink-2 leading-relaxed">Dedicated business-to-business distributor partner inquiries and onboarding portal.</p>
+            <!-- Card 7: Wholesale Form -->
+            <div onclick="window.location.href='contact8.html'" class="bg-paper border border-ink/5 p-6 rounded-3xl cursor-pointer group transition-all duration-200 flex gap-4 card-hover">
+              <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-orange text-2xl shrink-0 group-hover:bg-orange/10 transition-colors">
+                <iconify-icon icon="ph:briefcase-bold"></iconify-icon>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg font-bold text-ink mb-2 font-display group-hover:text-orange transition-colors flex items-center gap-1.5">
+                  Wholesale Form
+                  <iconify-icon icon="ph:arrow-right-bold" class="text-sm"></iconify-icon>
+                </h3>
+                <p class="text-sm text-ink-2 leading-relaxed mb-3">
+                  Dedicated business-to-business distributor partner inquiries and onboarding portal, tailored specifically for wholesale inquiries.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-cream text-ink font-mono text-[9px] px-2.5 py-1 rounded">B2B Contacts</span>
+                  <span class="bg-cream text-ink font-mono text-[9px] px-2.5 py-1 rounded">Wholesale Partner Intake</span>
                 </div>
               </div>
+            </div>
 
-              <!-- Vertical Divider -->
-              <div class="hidden md:block w-[1px] bg-ink/10 self-stretch my-2"></div>
-
-              <!-- Customer Feedback Column -->
-              <div onclick="window.location.href='feedback8.html'" class="flex gap-4 items-start flex-1 cursor-pointer group hover:bg-cream/40 p-3 rounded-xl transition-all duration-200">
-                <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-orange text-xl shrink-0 group-hover:bg-orange/10 transition-colors">
-                  <iconify-icon icon="ph:chats-circle-bold"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-bold text-ink mb-1 font-display group-hover:text-orange transition-colors flex items-center gap-1">
-                    Consumer Feedback
-                    <iconify-icon icon="ph:arrow-right-bold" class="text-xs"></iconify-icon>
-                  </h3>
-                  <p class="text-xs text-ink-2 leading-relaxed">Dedicated client feedback, queries, product suggestions, or quality support complaints.</p>
+            <!-- Card 8: Consumer Feedback -->
+            <div onclick="window.location.href='feedback8.html'" class="bg-paper border border-ink/5 p-6 rounded-3xl cursor-pointer group transition-all duration-200 flex gap-4 card-hover">
+              <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-orange text-2xl shrink-0 group-hover:bg-orange/10 transition-colors">
+                <iconify-icon icon="ph:chats-circle-bold"></iconify-icon>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg font-bold text-ink mb-2 font-display group-hover:text-orange transition-colors flex items-center gap-1.5">
+                  Consumer Feedback
+                  <iconify-icon icon="ph:arrow-right-bold" class="text-sm"></iconify-icon>
+                </h3>
+                <p class="text-sm text-ink-2 leading-relaxed mb-3">
+                  Dedicated customer feedback, quality complaints, queries, or product support form to separate consumer voices from commercial requests.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-cream text-ink font-mono text-[9px] px-2.5 py-1 rounded">Consumer Feedback Form</span>
+                  <span class="bg-cream text-ink font-mono text-[9px] px-2.5 py-1 rounded">Purchase location query</span>
                 </div>
               </div>
             </div>
@@ -558,7 +564,7 @@
                 <span class="block">Archivo Black 900</span>
               </div>
               <div class="md:col-span-3">
-                <h2 class="text-5xl md:text-7xl font-black tracking-tight leading-none text-ink">Morningsunrise</h2>
+                <h2 class="text-3xl sm:text-5xl md:text-7xl font-black tracking-tight leading-none text-ink break-all">Morningsunrise</h2>
               </div>
             </div>
 
@@ -570,7 +576,7 @@
                 <span class="block">Archivo Black 900</span>
               </div>
               <div class="md:col-span-3">
-                <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-none text-ink">Fresh bread, daily</h1>
+                <h1 class="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight leading-none text-ink">Fresh bread, daily</h1>
               </div>
             </div>
 
