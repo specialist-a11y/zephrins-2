@@ -72,12 +72,20 @@
     <!-- ============ TOP STRIP ============ -->
     <div class="bg-ink text-yellow text-xs border-b border-white/5">
       <div class="max-w-7xl mx-auto px-6 lg:px-10 h-11 flex items-center justify-between font-mono tracking-wider">
-        <div class="flex items-center gap-4 mx-auto sm:mx-0">
+        <div class="flex items-center gap-3 sm:gap-4 mx-auto sm:mx-0">
           <a href="index.html" class="text-yellow hover:text-white transition-colors flex items-center gap-1.5 font-bold uppercase"><iconify-icon icon="ph:arrow-left-bold"></iconify-icon> Back to Proposal</a>
           <span class="text-white/20">•</span>
-          <span>P: 1-246-538-1426</span>
+          <!-- Phone link: icon only on mobile, text on desktop -->
+          <a href="tel:12465381426" class="hover:text-white transition-colors flex items-center gap-1">
+            <iconify-icon icon="ph:phone-fill" class="text-sm sm:hidden"></iconify-icon>
+            <span class="hidden sm:inline">P: 1-246-538-1426</span>
+          </a>
           <span class="text-white/20">•</span>
-          <span>E: hello@zephirinsbakery.bb</span>
+          <!-- Email link: icon only on mobile, text on desktop -->
+          <a href="mailto:hello@zephirinsbakery.bb" class="hover:text-white transition-colors flex items-center gap-1">
+            <iconify-icon icon="ph:envelope-simple-fill" class="text-sm sm:hidden"></iconify-icon>
+            <span class="hidden sm:inline">E: hello@zephirinsbakery.bb</span>
+          </a>
         </div>
         <div class="hidden sm:flex items-center gap-4 text-base">
           <a href="https://www.instagram.com/zephirinsbakeries/" target="_blank" class="hover:text-white transition-colors flex items-center" aria-label="Instagram"><iconify-icon icon="ph:instagram-logo-bold"></iconify-icon></a>
