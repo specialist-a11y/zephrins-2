@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Bakery Products — Zephirin's Bakery Barbados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-orange: var(--orange);
+        --color-orange-deep: var(--orange-deep);
+        --color-yellow: var(--yellow);
+        --color-ink: var(--ink);
+        --color-ink-2: var(--ink-2);
+        --color-muted: var(--muted);
+        --color-cream: var(--cream);
+        --color-paper: var(--paper);
+        --font-family-display: var(--font-display);
+        --font-family-mono: var(--font-mono);
+      }
+      :root {
+        --orange: #FF5A1F;
+        --orange-deep: #E8410A;
+        --yellow: #FFB02E;
+        --ink: #16120C;
+        --ink-2: #443C31;
+        --muted: #857A69;
+        --cream: #FFF5EA;
+        --paper: #FFFFFF;
+        --font-display: 'Archivo', sans-serif;
+        --font-mono: 'IBM Plex Mono', monospace;
+      }
+      body { font-family: var(--font-display); color: var(--ink); background: var(--paper); }
+      .font-mono { font-family: var(--font-mono); }
+
+      .text-display { font-size: clamp(2.875rem, 2rem + 4.4vw, 6.5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.92; }
+      .text-hero    { font-size: clamp(2.5rem, 1.9rem + 3vw, 4.5rem);   font-weight: 900; letter-spacing: -0.04em; line-height: 0.96; }
+      .text-h2      { font-size: clamp(2rem, 1.5rem + 2.5vw, 3.75rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+      .text-h3      { font-size: clamp(1.375rem, 1.2rem + 0.9vw, 1.875rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+      .text-lead    { font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem); font-weight: 400; line-height: 1.55; color: var(--ink-2); }
+      .eyebrow { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange-deep); }
+
+      .eyebrow-rule { display:inline-flex; align-items:center; gap: 0.6rem; }
+      .eyebrow-rule::before { content:""; display:inline-block; width: 28px; height: 2px; background: var(--orange); }
+
+      .btn-primary { background: var(--orange); color: #fff; transition: background .2s ease, transform .2s ease; }
+      .btn-primary:hover { background: var(--orange-deep); transform: translateY(-1px); }
+      .btn-dark { background: var(--ink); color: #fff; transition: opacity .2s ease, transform .2s ease; }
+      .btn-dark:hover { opacity: .85; transform: translateY(-1px); }
+      .btn-outline { border: 1.5px solid #fff; color: #fff; transition: background .2s ease, color .2s ease; }
+      .btn-outline:hover { background: #fff; color: var(--ink); }
+      .btn-outline-dark { border: 1.5px solid var(--ink); color: var(--ink); transition: background .2s ease, color .2s ease; }
+      .btn-outline-dark:hover { background: var(--ink); color: #fff; }
+
+      .sunrise-dot {
+        background: radial-gradient(circle at 32% 30%, var(--yellow) 0%, var(--orange) 55%, var(--orange-deep) 100%);
+      }
+      .card-hover { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+      .card-hover:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -16px rgba(22,18,12,0.18); border-color: var(--orange); }
+      
+      /* Active tab styling */
+      .tab-btn.active { background-color: var(--orange); border-color: var(--orange); color: white; }
+
+      /* Dialog/Modal Styling */
+      dialog {
+        border: none;
+        padding: 0;
+        background: transparent;
+        overflow: visible;
+        outline: none;
+      }
+      dialog::backdrop {
+        background: rgba(22, 18, 12, 0.65);
+        backdrop-filter: blur(8px);
+        transition: opacity 0.3s ease;
+      }
+      dialog[open] {
+        animation: modalScaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+      @keyframes modalScaleIn {
+        from { transform: scale(0.95); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-orange/20 selection:text-orange-deep">    <!-- ============ TOP STRIP ============ -->
+    <div class="bg-ink text-yellow text-xs border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 h-11 flex items-center justify-between font-mono tracking-wider">
+        <div class="flex items-center gap-4 mx-auto sm:mx-0">
+          <a href="index.html" class="text-yellow hover:text-white transition-colors flex items-center gap-1.5 font-bold uppercase"><iconify-icon icon="ph:arrow-left-bold"></iconify-icon> Back to Proposal</a>
+          <span class="text-white/20">•</span>
+          <span>P: 1-246-538-1426</span>
+          <span class="text-white/20">•</span>
+          <span>E: hello@zephirinsbakery.bb</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-4 text-base">
+          <a href="https://www.instagram.com/zephirinsbakeries/" target="_blank" class="hover:text-white transition-colors flex items-center" aria-label="Instagram"><iconify-icon icon="ph:instagram-logo-bold"></iconify-icon></a>
+          <span class="text-white/20">•</span>
+          <a href="https://www.facebook.com/zephirinsbakeries/" target="_blank" class="hover:text-white transition-colors flex items-center" aria-label="Facebook"><iconify-icon icon="ph:facebook-logo-bold"></iconify-icon></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 2. STICKY HEADER ============ -->
+    <header id="site-header" class="sticky top-0 z-50 bg-paper/95 backdrop-blur-md border-b border-ink/10 transition-all duration-300">
+      <!-- Top Row: Centered Logo -->
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex justify-center border-b border-ink/5">
+        <a href="concept8.html" class="flex items-center">
+          <img src="images/zephirin-bakeries-logo-transparent.png" alt="Zephirin's Bakery" class="h-[100px] w-auto" />
+        </a>
+      </div>
+      <!-- Bottom Row: Navigation and Controls -->
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+        <!-- Left: Hamburger List Icon (triggers Mobile/Sidebar Nav) -->
+        <button onclick="toggleMobileNav()" class="flex items-center justify-center w-10 h-10 -ml-2 text-ink hover:text-orange transition-colors cursor-pointer" aria-label="Toggle Navigation">
+          <iconify-icon icon="ph:list-bold" class="text-2xl"></iconify-icon>
+        </button>
+
+        <!-- Center: Centered Menu Links -->
+        <nav class="hidden lg:flex items-center gap-8 text-[13px] font-bold uppercase tracking-wider text-ink-2">
+          <a href="concept8.html" class="hover:text-orange transition-colors">Home</a>
+          
+          <!-- Products Dropdown -->
+          <div class="relative group py-4">
+            <button class="text-orange relative pb-1 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-[2px] after:h-[2px] after:bg-orange transition-colors flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer">
+              Products
+              <iconify-icon icon="ph:caret-down-bold" class="text-xs transition-transform duration-200 group-hover:rotate-180"></iconify-icon>
+            </button>
+            <div class="absolute left-0 mt-2 w-48 bg-paper border border-ink/10 rounded-2xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <a href="bakery8.html" class="block px-4 py-2.5 text-xs text-orange bg-cream transition-colors font-medium normal-case font-display">Bakery</a>
+              <a href="convenience8.html" class="block px-4 py-2.5 text-xs text-ink hover:bg-cream hover:text-orange transition-colors font-medium normal-case font-display">Convenience Store</a>
+            </div>
+          </div>
+
+          <a href="recipes8.html" class="hover:text-orange transition-colors">Recipes</a>
+          <a href="locator8.html" class="hover:text-orange transition-colors">Where to Find Us</a>
+          <a href="about8.html" class="hover:text-orange transition-colors">Heritage & Community</a>
+          <a href="feedback8.html" class="hover:text-orange transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right: Curved CTA Button -->
+        <a href="contact8.html" class="bg-orange hover:bg-orange-deep text-white transition-all duration-200 rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider shadow-sm">
+          Stock Zephrin's
+        </a>
+      </div>
+    </header>
+
+    <!-- ============ HERO BANNER ============ -->
+    <section class="relative bg-cream py-20 lg:py-28 overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full sunrise-dot opacity-20 blur-3xl"></div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center relative z-10">
+        <p class="eyebrow mb-4">Bakery Products</p>
+        <h1 class="text-hero leading-tight text-ink">Baked fresh for the island, daily.</h1>
+        <p class="text-lead mt-5 max-w-2xl mx-auto text-ink-2">Explore our daily range of traditional Bajan loaves, sweet rolls, burger buns, and teatime treats.</p>
+      </div>
+    </section>
+
+    <!-- ============ FILTERABLE PRODUCTS GRID ============ -->
+    <section class="py-24 bg-paper">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        
+        <!-- Filter Bar: Search and Category Tabs -->
+        <div class="mb-16">
+          <div class="relative max-w-md mx-auto mb-8">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-muted/60">
+              <iconify-icon icon="ph:magnifying-glass-bold" class="text-lg"></iconify-icon>
+            </span>
+            <input 
+              type="text" 
+              id="product-search" 
+              placeholder="Search bakery products..." 
+              oninput="handleSearchAndFilter()" 
+              class="w-full pl-11 pr-10 py-3.5 bg-paper border border-ink/10 rounded-full focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange text-sm font-mono transition-all duration-200 shadow-sm" 
+            />
+            <button 
+              id="clear-search-btn" 
+              onclick="clearSearch()" 
+              class="absolute inset-y-0 right-0 flex items-center pr-4 text-muted/60 hover:text-orange transition-colors hidden cursor-pointer"
+              aria-label="Clear search"
+            >
+              <iconify-icon icon="ph:x-bold" class="text-sm"></iconify-icon>
+            </button>
+          </div>
+
+          <!-- Tabbed Buttons -->
+          <div class="flex flex-wrap gap-3 justify-center font-mono text-sm">
+            <button onclick="filterProducts('all')" id="tab-all" class="tab-btn active border border-ink/10 px-6 py-2.5 rounded-full hover:bg-orange hover:border-orange hover:text-white transition-all duration-200 cursor-pointer">All Products</button>
+            <button onclick="filterProducts('bread')" id="tab-bread" class="tab-btn border border-ink/10 px-6 py-2.5 rounded-full hover:bg-orange hover:border-orange hover:text-white transition-all duration-200 cursor-pointer">Daily Breads</button>
+            <button onclick="filterProducts('rolls')" id="tab-rolls" class="tab-btn border border-ink/10 px-6 py-2.5 rounded-full hover:bg-orange hover:border-orange hover:text-white transition-all duration-200 cursor-pointer">Buns &amp; Rolls</button>
+            <button onclick="filterProducts('treats')" id="tab-treats" class="tab-btn border border-ink/10 px-6 py-2.5 rounded-full hover:bg-orange hover:border-orange hover:text-white transition-all duration-200 cursor-pointer">Teatime &amp; Treats</button>
+            <button onclick="filterProducts('healthy')" id="tab-healthy" class="tab-btn border border-ink/10 px-6 py-2.5 rounded-full hover:bg-orange hover:border-orange hover:text-white transition-all duration-200 cursor-pointer">Healthy Options</button>
+          </div>
+        </div>
+
+        <!-- Products Cards Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INGREDIENTS / NUTRITION CALLOUT ============ -->
+    <section class="py-24 bg-ink text-white relative overflow-hidden">
+      <div class="absolute -top-32 -left-32 w-[350px] h-[350px] rounded-full sunrise-dot opacity-25 blur-3xl"></div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-12 items-center relative z-10">
+        <div>
+          <p class="eyebrow text-yellow mb-4">Our standard</p>
+          <h2 class="text-h2 text-white leading-tight">No shortcuts. No fillers. Only raw quality.</h2>
+          <p class="text-lead mt-6 text-white/70">
+            Every bag of flour is sifted by hand. We use natural molasses, cane sugar, and real spices sourced locally from the fields of St. George and St. Philip.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-6 font-mono text-sm">
+          <div class="border border-white/10 p-6 rounded-2xl bg-white/5">
+            <span class="text-yellow text-3xl block mb-2"><iconify-icon icon="ph:plant-bold"></iconify-icon></span>
+            <p class="font-bold text-white uppercase tracking-wider text-xs">All Natural</p>
+            <p class="text-white/60 text-xs mt-2">Free from artificial preservatives or processing aids.</p>
+          </div>
+          <div class="border border-white/10 p-6 rounded-2xl bg-white/5">
+            <span class="text-yellow text-3xl block mb-2"><iconify-icon icon="ph:hourglass-bold"></iconify-icon></span>
+            <p class="font-bold text-white uppercase tracking-wider text-xs">Slow Proved</p>
+            <p class="text-white/60 text-xs mt-2">Fermented slowly for texture and digestible sugars.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-ink text-white border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-10">
+        <div class="grid md:grid-cols-12 gap-12">
+          
+          <div class="md:col-span-5">
+            <a href="#" class="flex items-center mb-6">
+              <img src="images/zephirin-bakeries-logo-white-text.png" alt="Zephirin's Bakery" class="h-[94px] w-auto" />
+            </a>
+            <p class="text-white/60 max-w-xs leading-relaxed text-[15px]">
+              Barbados' bakery since 1923 — fresh bread baked before sunrise and delivered to every parish on the island.
+            </p>
+            <div class="flex items-center gap-4 mt-8">
+              <a href="https://www.instagram.com/zephirinsbakeries/" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-orange hover:text-white transition-colors" aria-label="Instagram"><iconify-icon icon="ph:instagram-logo-bold"></iconify-icon></a>
+              <a href="https://www.facebook.com/zephirinsbakeries/" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-orange hover:text-white transition-colors" aria-label="Facebook"><iconify-icon icon="ph:facebook-logo-bold"></iconify-icon></a>
+            </div>
+          </div>
+
+          <div class="md:col-span-2">
+            <p class="eyebrow mb-5" style="color: var(--yellow);">Explore</p>
+            <ul class="space-y-3 text-white/60 text-sm font-medium">
+              <li><a href="bakery8.html" class="hover:text-white transition-colors font-normal">Bakery Products</a></li>
+              <li><a href="convenience8.html" class="hover:text-white transition-colors font-normal">Convenience Store</a></li>
+              <li><a href="recipes8.html" class="hover:text-white transition-colors font-normal">Recipes</a></li>
+              <li><a href="locator8.html" class="hover:text-white transition-colors font-normal">Locator</a></li>
+              <li><a href="about8.html" class="hover:text-white transition-colors font-normal">Heritage & Community</a></li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-2">
+            <p class="eyebrow mb-5" style="color: var(--yellow);">Company</p>
+            <ul class="space-y-3 text-white/60 text-sm font-medium">
+              <li><a href="about8.html" class="hover:text-white transition-colors font-normal">Heritage</a></li>
+              <li><a href="vacancies8.html" class="hover:text-white transition-colors font-normal">Careers &amp; Vacancies</a></li>
+              <li><a href="#" class="hover:text-white transition-colors font-normal">Privacy policy</a></li>
+              <li><a href="feedback8.html" class="hover:text-white transition-colors font-normal">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-3">
+            <p class="eyebrow mb-5" style="color: var(--yellow);">Headquarters</p>
+            <p class="text-white/60 leading-relaxed font-mono text-sm mb-4">
+              Tudor Bridge<br/>Bridgetown, Saint Michael<br/>Barbados
+            </p>
+            <div class="w-full h-32 border border-white/10 rounded-xl overflow-hidden opacity-85 hover:opacity-100 transition-opacity">
+              <iframe 
+                src="https://maps.google.com/maps?q=Tudor%20Bridge,%20Bridgetown,%20Saint%20Michael,%20Barbados&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                class="w-full h-full border-0 filter invert-[0.9] hue-rotate-[180deg]" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+        
+        <div class="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-white/40 font-mono">
+          <p>Zephirin's Bakery · © 1923–2026. All rights reserved.</p>
+          <p class="flex items-center gap-2">
+            <iconify-icon icon="ph:sparkle-fill" class="text-yellow"></iconify-icon>
+            As fresh as the morning sunrise
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============ DETAILED PRODUCT MODAL ============ -->
+    <dialog id="product-modal" closedby="any" class="w-full max-w-3xl rounded-3xl bg-paper shadow-2xl overflow-hidden m-auto">
+      <!-- Modal Inner Container -->
+      <div class="relative flex flex-col md:flex-row h-full max-h-[90vh] md:max-h-[85vh] overflow-y-auto md:overflow-hidden bg-paper">
+        <!-- Close Button -->
+        <button onclick="closeProductModal()" class="absolute top-4 right-4 z-50 w-9 h-9 rounded-full bg-paper/85 hover:bg-white text-ink hover:text-orange shadow-md border border-ink/5 flex items-center justify-center transition-all cursor-pointer" aria-label="Close details">
+          <iconify-icon icon="ph:x-bold" class="text-base"></iconify-icon>
+        </button>
+
+        <!-- Left Column: Image -->
+        <div class="w-full md:w-1/2 aspect-square md:h-full overflow-hidden bg-white p-6 flex items-center justify-center relative border-r border-ink/5">
+          <img id="modal-product-image" src="" alt="" class="max-w-full max-h-full object-contain" />
+        </div>
+
+        <!-- Right Column: Details -->
+        <div class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-between overflow-y-auto md:max-h-[85vh]">
+          <div>
+            <!-- Category and Badge -->
+            <div class="flex items-center gap-2 mb-2">
+              <span id="modal-product-category" class="font-mono text-[10px] tracking-widest text-orange-deep uppercase">Category</span>
+            </div>
+            <!-- Title -->
+            <h2 id="modal-product-title" class="font-display font-extrabold text-2xl lg:text-3xl text-ink leading-tight mb-4">Product Name</h2>
+            
+            <hr class="border-ink/5 my-4" />
+
+            <!-- Description -->
+            <div class="space-y-4">
+              <p id="modal-product-long-desc" class="text-sm text-ink-2 leading-relaxed">
+                Detailed description goes here.
+              </p>
+            </div>
+          </div>
+
+          <!-- Specs List -->
+          <div class="mt-8 space-y-4 pt-6 border-t border-ink/5 font-mono text-[11px]">
+            <div class="flex justify-between border-b border-ink/5 pb-2">
+              <span class="text-muted uppercase tracking-wider">Wholesale Pack</span>
+              <span id="modal-product-pack" class="font-semibold text-ink text-right">Pack details</span>
+            </div>
+            <div class="flex justify-between border-b border-ink/5 pb-2">
+              <span class="text-muted uppercase tracking-wider">Sizing &amp; Weight</span>
+              <span id="modal-product-sizing" class="font-semibold text-ink text-right">Sizing details</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="text-muted uppercase tracking-wider mb-1">Key Ingredients</span>
+              <p id="modal-product-ingredients" class="text-ink-2 font-sans text-xs leading-relaxed">Ingredients details</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- ============ FAQS & PRODUCTS SCRIPTS ============ -->
+    <script>
+      // 23 Bakery Products Database (names synchronized with screenshot attachments)
+      const productsData = [
+        {
+          title: "5.5 Sesame Seeds (4)",
+          category: "rolls",
+          categoryLabel: "Buns & Rolls",
+          image: "images/sesame_seeds_4_product.png",
+          badge: "Premium",
+          shortDescription: "Jumbo, soft, glazed sesame buns. Perfectly proportioned for large gourmet burgers or cutters.",
+          longDescription: "Our Premium 5.5\" Sesame Seed buns are baked to a beautiful golden-brown color, brushed with glaze, and loaded with toasted sesame seeds. Engineered specifically for food service partners who require a larger bun that holds up under heavier gourmet toppings.",
+          pack: "4 Buns / Bag",
+          sizing: "Pack of 4, 5.5\" diameter",
+          ingredients: "Enriched Wheat Flour, Water, Sesame Seeds, Cane Sugar, Eggs, Butter, Yeast, Sea Salt."
+        },
+        {
+          title: "Sesame Seed Buns (6)",
+          category: "rolls",
+          categoryLabel: "Buns & Rolls",
+          image: "images/sesame_buns_6_product.png",
+          badge: "Bestseller",
+          shortDescription: "Fluffy, classic brioche-style burger buns topped with sesame seeds. Pack of 6.",
+          longDescription: "A retail staple in Bajan households. These soft buns offer a fluffy, fine-textured crumb and a clean sesame topping. Great for family dinners, slider recipes, or traditional cheese and lunch cutters.",
+          pack: "6 Buns / Bag",
+          sizing: "Pack of 6 buns, 4\" diameter",
+          ingredients: "Wheat Flour, Purified Water, Sugar, Toasted Sesame Seeds, Vegetable Oil, Yeast, Salt."
+        },
+        {
+          title: "Whole Wheat Buns (8)",
+          category: "rolls",
+          categoryLabel: "Buns & Rolls",
+          image: "images/hamburger_buns_product.png",
+          badge: "High Fiber",
+          shortDescription: "Soft, nutritious burger buns baked with 100% whole wheat flour. Pack of 8.",
+          longDescription: "A healthy alternative for cookouts and everyday meals. Packed with grain fiber and vitamins, these Whole Wheat Buns deliver a hearty, slightly nuttier taste without compromising on softness.",
+          pack: "8 Buns / Bag",
+          sizing: "Pack of 8 buns, 4\" diameter",
+          ingredients: "Stone-Ground Whole Wheat Flour, Water, Molasses, Soybean Oil, Yeast, Salt."
+        },
+        {
+          title: "Salt Bread (6)",
+          category: "rolls",
+          categoryLabel: "Buns & Rolls",
+          image: "images/salt_bread_product.png",
+          badge: "Staple",
+          shortDescription: "The ultimate Bajan staple roll. Soft, crusty, and perfect for ham and cheese cutters.",
+          longDescription: "Zephirin's traditional Salt Bread rolls are a true Barbados national favorite. Prepared using a heritage slow-fermentation method to yield a signature crispy crust and airy center. Split one open, add ham or cheese, and enjoy a classic Bajan cutter.",
+          pack: "6 Rolls / Bag",
+          sizing: "Pack of 6 rolls, 4\" diameter",
+          ingredients: "Enriched Flour, Water, Yeast, Shortening, Salt, Cane Molasses."
+        },
+        {
+          title: "Sweet Buns (8)",
+          category: "rolls",
+          categoryLabel: "Buns & Rolls",
+          image: "images/sweet_buns_product.png",
+          badge: "Classic",
+          shortDescription: "Soft yeast buns sweetened with vanilla and nutmeg, finished with a crystalline sugar dusting.",
+          longDescription: "Indulge in a classic teatime pastry. These traditional yeast rolls are flavored with nutmeg and sweet spices, baked to a golden shine, glazed, and dusted with granulated sugar. Delicious toasted with butter or cheese.",
+          pack: "8 Buns / Bag",
+          sizing: "Pack of 8 sweet buns, 450g",
+          ingredients: "Wheat Flour, Sugar, Butter, Milk Solids, Eggs, Nutmeg, Vanilla Extract, Yeast, Salt."
+        },
+        {
+          title: "Hot Dog Rolls (8)",
+          category: "rolls",
+          categoryLabel: "Buns & Rolls",
+          image: "images/hot_dog_rolls_product.png",
+          badge: "Party Pack",
+          shortDescription: "Perfectly portioned soft hot dog rolls. Sliced and ready for sausages or fish fingers.",
+          longDescription: "Elongated, soft sandwich rolls made from our classic enriched dough. Pre-sliced along the side for effortless preparation. Keeps perfectly soft, ideal for kids' meals, hot dogs, or sausage cutter variations.",
+          pack: "8 Rolls / Bag",
+          sizing: "Pack of 8 rolls, 6\" long",
+          ingredients: "Enriched Wheat Flour, Water, High-Fructose Corn Syrup, Yeast, Vegetable Oil, Salt."
+        },
+        {
+          title: "Hamburger Buns (8)",
+          category: "rolls",
+          categoryLabel: "Buns & Rolls",
+          image: "images/hamburger_buns_product.png",
+          badge: "Essential",
+          shortDescription: "Soft, sturdy sesame-topped burger buns designed to hold thick, juicy patties.",
+          longDescription: "The staple burger bun of Barbadian backyard grills. Formulated with extra strength to hold up against juices, dressings, and heavy burger toppings. Lightly toasted sesame seeds cover the top of each sliced bun.",
+          pack: "8 Buns / Bag",
+          sizing: "Pack of 8 buns, 4.2\" diameter",
+          ingredients: "Enriched Flour, Water, Sugar, Yeast, Soybean Oil, Toasted Sesame Seeds, Sea Salt."
+        },
+        {
+          title: "Jumbo Hot Dog",
+          category: "rolls",
+          categoryLabel: "Buns & Rolls",
+          image: "images/jumbo_hot_dog_product.png",
+          badge: "New",
+          shortDescription: "Larger, thicker hot dog rolls crafted for jumbo sausages and gourmet toppings.",
+          longDescription: "Our Jumbo Hot Dog Rolls are designed to hold larger, premium sausages and bratwursts. Sliced down the top center (split-top) to allow for loading with relish, cheese, onions, and heavy sauces without collapsing.",
+          pack: "6 Rolls / Bag",
+          sizing: "Pack of 6 rolls, 7.5\" long",
+          ingredients: "Wheat Flour, Water, Sugar, Shortening, Yeast, Milk Solids, Salt."
+        },
+        {
+          title: "100% Whole Wheat",
+          category: "bread",
+          categoryLabel: "Daily Bread",
+          image: "images/whole_wheat_product.png",
+          badge: "Staple",
+          shortDescription: "Baked with whole grain wheat flour. Hearty, fiber-rich, and healthy.",
+          longDescription: "Zephirin's classic 100% Whole Wheat sliced loaf. Baked with locally sourced stone-ground flour, retaining the natural bran and germ fibers to support active digestion. Perfect for morning toast or healthy sandwiches.",
+          pack: "Standard Sliced Loaf",
+          sizing: "20 Slices per Loaf, 600g",
+          ingredients: "100% Stone-ground Whole Wheat Flour, Purified Water, Cane Sugar, Yeast, Salt."
+        },
+        {
+          title: "Ten Grain",
+          category: "bread",
+          categoryLabel: "Daily Bread",
+          image: "images/ten_grain_bread_product.png",
+          badge: "Multi-Grain",
+          shortDescription: "Loaded with ten nutrient-dense grains and seeds for a hearty texture and nutty flavor.",
+          longDescription: "Baked with a custom blend of flax seeds, rolled oats, cracked wheat, rye, millet, cornmeal, barley, sesame, spelt, and sunflower seeds. Delivers a highly satisfying, grain-rich crunch with every bite.",
+          pack: "Standard Sliced Loaf",
+          sizing: "20 Slices per Loaf, 680g",
+          ingredients: "Wheat Flour, Multi-Grain Blend (Flax, Oats, Millet, Rye, Sesame, Sunflower), Molasses, Yeast, Salt."
+        },
+        {
+          title: "Bran Sandwich",
+          category: "bread",
+          categoryLabel: "Daily Bread",
+          image: "images/bran_sandwich_product.png",
+          badge: "Digestive",
+          shortDescription: "Enriched with added wheat bran for high dietary fiber and digestive health.",
+          longDescription: "Our Bran Sandwich loaf combines the digestive wellness benefits of pure wheat bran with the light, soft texture of a classic table sandwich bread. Sliced thin for quick breakfasts and daily sandwhiches.",
+          pack: "Standard Sliced Loaf",
+          sizing: "20 Slices per Loaf, 600g",
+          ingredients: "Enriched Wheat Flour, Coarse Wheat Bran, Purified Water, Sugar, Yeast, Vegetable Oil, Salt."
+        },
+        {
+          title: "Large Bran Sandwich",
+          category: "bread",
+          categoryLabel: "Daily Bread",
+          image: "images/bran_sandwich_product.png",
+          badge: "Family Size",
+          shortDescription: "A larger-sliced, high-fiber Bran Sandwich loaf for active, healthy families.",
+          longDescription: "All the nutritional value of our standard Bran Sandwich loaf, scaled up with larger, wider slices. Features a hearty whole-grain wheat bran crumb that keeps you feeling satisfied for longer.",
+          pack: "Large Sliced Loaf",
+          sizing: "22 Slices per Loaf, 750g",
+          ingredients: "Wheat Flour, Coarse Bran, Water, Cane Sugar, Shortening, Yeast, Salt."
+        },
+        {
+          title: "large Sandwich",
+          category: "bread",
+          categoryLabel: "Daily Bread",
+          image: "images/white_sandwich_product.png",
+          badge: "Soft",
+          shortDescription: "Our large-sliced white sandwich bread. Incredibly soft, fine crumb, and perfect for toast.",
+          longDescription: "The ultimate Barbados white bread staple in its larger family configuration. Baked to a uniform square shape with a ultra-soft texture. Perfect for peanut butter & jelly, grilled cheese, or loaded clubs.",
+          pack: "Large Sliced Loaf",
+          sizing: "22 Slices per Loaf, 750g",
+          ingredients: "Enriched White Flour, Water, High-Fructose Corn Syrup, Yeast, Vegetable Oil, Sea Salt."
+        },
+        {
+          title: "Regular Sandwich",
+          category: "bread",
+          categoryLabel: "Daily Bread",
+          image: "images/white_sandwich_product.png",
+          badge: "Staple",
+          shortDescription: "The classic daily white sandwich loaf. Perfectly sized for standard lunches.",
+          longDescription: "The standard sliced white bread that has defined Zephirin's morning deliveries since the beginning. It features a thin golden crust and a soft, fine crumb that toasts to a perfect light brown.",
+          pack: "Standard Sliced Loaf",
+          sizing: "20 Slices per Loaf, 620g",
+          ingredients: "Enriched White Flour, Water, Sugar, Yeast, Shortening, Salt."
+        },
+        {
+          title: "Health Cob",
+          category: "bread",
+          categoryLabel: "Daily Bread",
+          image: "images/health_cob_product.png",
+          badge: "Wholesome",
+          shortDescription: "Rustic round cob bread loaded with whole grains and dynamic seed blends.",
+          longDescription: "A traditional round, unsliced cob loaf containing premium stone-ground flour, oats, barley, flax, and sesame seeds. Slow-proved and baked to create a robust, chewy crust with a soft, grain-filled interior.",
+          pack: "Unsliced Round Loaf",
+          sizing: "500g round cob",
+          ingredients: "Whole Wheat Flour, Barley, Oats, Flax Seeds, Sesame Seeds, Water, Molasses, Yeast, Salt."
+        },
+        {
+          title: "Choice Loaf",
+          category: "bread",
+          categoryLabel: "Daily Bread",
+          image: "images/choice_loaf_product.png",
+          badge: "Bestseller",
+          shortDescription: "Made with sweet raisins and white flour. It's your Choice or my Choice!",
+          longDescription: "Our famous Choice Loaf is a classic white bread sweetened and loaded with delicious, plump raisins. A beloved Barbadian treat that makes the absolute best French toast, tea sandwiches, or morning breakfast slices.",
+          pack: "Standard Sliced Loaf",
+          sizing: "20 Slices per Loaf, 650g",
+          ingredients: "Enriched White Flour, Seedless Raisins, Sugar, Water, Yeast, Shortening, Salt."
+        },
+        {
+          title: "10 Grain Buns",
+          category: "rolls",
+          categoryLabel: "Buns & Rolls",
+          image: "images/ten_grain_buns_product.png",
+          badge: "New",
+          shortDescription: "Healthy, multi-grain sandwich buns packed with ten grains and seed mixes.",
+          longDescription: "Enjoy the nutrient-dense benefits of our classic 10 Grain blend in a soft, round bun format. Coated with rolled oats and seeds. Excellent for health-conscious burger nights, sandwiches, or cold cuts.",
+          pack: "6 Buns / Bag",
+          sizing: "Pack of 6 buns, 400g total",
+          ingredients: "Stone-Ground Whole Wheat Flour, Ten Grain Mix (Flax, Oats, Millet, Rye, Sesame, Sunflower), Molasses, Yeast, Salt."
+        },
+        {
+          title: "Coconut Sweet Bread",
+          category: "treats",
+          categoryLabel: "Teatime Treats",
+          image: "images/coconut_bread_product.png",
+          badge: "Bestseller",
+          shortDescription: "Traditional sweet bread loaded with grated coconut and a sweet cherry core.",
+          longDescription: "A traditional Barbados masterpiece. Our Coconut Sweet Bread is thick, heavy, and baked using freshly grated coconut, sweet spices, and a signature line of sweet glacé cherries baked directly into the center of the loaf.",
+          pack: "Individual Loaf",
+          sizing: "700g Loaf",
+          ingredients: "Enriched Flour, Grated Coconut, Sugar, Butter, Glacé Cherries, Cinnamon, Almond Extract, Salt."
+        },
+        {
+          title: "Raisin Bread",
+          category: "treats",
+          categoryLabel: "Teatime Treats",
+          image: "images/raisin_bread_product.png",
+          badge: "Sweet",
+          shortDescription: "Sweet spiced dough packed with raisins. A breakfast favorite.",
+          longDescription: "A soft, aromatic yeast loaf spiced with cinnamon and nutmeg, loaded with plump seedless raisins. Excellent toasted with butter, or sliced and baked into a rich breakfast pudding.",
+          pack: "Standard Sliced Loaf",
+          sizing: "18 Slices per Loaf, 550g",
+          ingredients: "Wheat Flour, Plump Raisins, Sugar, Butter, Cinnamon, Yeast, Salt, Water."
+        },
+        {
+          title: "Garlic Bread Baguette",
+          category: "treats",
+          categoryLabel: "Teatime Treats",
+          image: "images/garlic_bread_product.png",
+          badge: "Savory",
+          shortDescription: "Baguette filled with our custom whipped garlic herb butter, ready to bake.",
+          longDescription: "Freshly baked French-style baguettes, sliced and generously slathered with our house-made garlic, parsley, and oregano whipped butter. Wrap in foil and heat in the oven for 10-15 minutes until piping hot and gooey.",
+          pack: "Individual Baguette",
+          sizing: "350g Baguette",
+          ingredients: "Baguette (Flour, Water, Yeast, Salt), Butter, Fresh Garlic, Parsley, Oregano."
+        },
+        {
+          title: "Spiced Bread Pudding",
+          category: "treats",
+          categoryLabel: "Teatime Treats",
+          image: "images/bread_pudding_product.png",
+          badge: "Tradition",
+          shortDescription: "Baked with raisins, spices, and finished with a sweet caramelized Bajan rum glaze.",
+          longDescription: "A rich, moist pudding baked using yesterday's wholesome loaves, combined with milk, eggs, nutmeg, raisins, and glacé cherries. Topped off with a sweet caramelized sugar glaze and a splash of Barbados rum.",
+          pack: "Pre-cut Slab",
+          sizing: "Individual Portion, 180g",
+          ingredients: "Zephirin's Breads, Whole Milk, Sugar, Eggs, Raisins, Cherries, Butter, Rum, Spices."
+        },
+        {
+          title: "Hot Cross Buns",
+          category: "treats",
+          categoryLabel: "Teatime Treats",
+          image: "images/hot_cross_buns_product.png",
+          badge: "Seasonal",
+          shortDescription: "Beloved seasonal sweet buns loaded with spices and raisins, topped with icing crosses.",
+          longDescription: "Our Hot Cross Buns are a cherished Barbadian Easter tradition. These soft, spiced buns are loaded with raisins and mixed citrus peels, baked to a shiny glaze, and decorated with a sweet white icing cross.",
+          pack: "6 Buns / Bag",
+          sizing: "Pack of 6 buns, 380g total",
+          ingredients: "Wheat Flour, Water, Sugar, Raisins, Mixed Citrus Peel, Yeast, Butter, Spices, Sugar Glaze, Icing."
+        },
+        {
+          title: "Coconut Turnover",
+          category: "treats",
+          categoryLabel: "Teatime Treats",
+          image: "images/turnover_product.png",
+          badge: "Bestseller",
+          shortDescription: "Sugar-dusted yeast turnovers filled with sweet spiced grated coconut.",
+          longDescription: "A legendary Bajan bakery treat. Soft yeast dough rolled around a rich filling of freshly grated coconut, brown sugar, vanilla, and spices. Baked to a golden crisp and dusted with crystalline sugar.",
+          pack: "Individual Pastry",
+          sizing: "Approx. 120g each",
+          ingredients: "Enriched Flour, Grated Coconut, Brown Sugar, Butter, Shortening, Yeast, Vanilla Extract, Sugar Dusting."
+        }
+      ];
+
+      // Flag healthy products programmatically
+      const healthyTitles = [
+        "Whole Wheat Buns (8)",
+        "100% Whole Wheat",
+        "Ten Grain",
+        "Bran Sandwich",
+        "Large Bran Sandwich",
+        "Health Cob",
+        "10 Grain Buns"
+      ];
+      productsData.forEach(p => {
+        if (healthyTitles.includes(p.title)) {
+          p.healthy = true;
+        }
+      });
+
+      let currentFilterCategory = 'all';
+
+      // Render products grid dynamically
+      function renderProducts() {
+        const grid = document.getElementById('products-grid');
+        const searchQuery = document.getElementById('product-search').value.toLowerCase().trim();
+        grid.innerHTML = '';
+
+        let filteredCount = 0;
+
+        productsData.forEach((product, index) => {
+          // Check category tab match
+          const matchesCategory = (
+            currentFilterCategory === 'all' || 
+            (currentFilterCategory === 'healthy' && product.healthy) ||
+            product.category === currentFilterCategory
+          );
+          
+          // Check search match
+          const matchesSearch = !searchQuery || 
+            product.title.toLowerCase().includes(searchQuery) ||
+            product.shortDescription.toLowerCase().includes(searchQuery) ||
+            product.longDescription.toLowerCase().includes(searchQuery) ||
+            product.categoryLabel.toLowerCase().includes(searchQuery) ||
+            product.ingredients.toLowerCase().includes(searchQuery);
+
+          if (matchesCategory && matchesSearch) {
+            filteredCount++;
+            
+            const card = document.createElement('div');
+            card.className = "product-item group relative bg-transparent rounded-3xl overflow-hidden flex flex-col justify-between p-4 transition-all duration-300 hover:shadow-lg";
+            card.innerHTML = `
+              <div>
+                <!-- Padded transparent box with object-contain to show packaging and shadow correctly -->
+                <div class="aspect-square w-full overflow-hidden bg-transparent rounded-2xl relative cursor-pointer p-4 flex items-center justify-center" onclick="openProductModal(${index})">
+                  <img src="${product.image}" alt="Zephirin's ${product.title}" class="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                  
+                  <!-- WooCommerce Hover Overlay -->
+                  <div class="absolute inset-0 bg-ink/65 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                    <button class="border border-white hover:bg-white hover:text-ink text-white font-bold font-mono tracking-widest text-[11px] uppercase py-3 px-6 transition-all duration-200 cursor-pointer rounded-full">
+                      View Product
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="pt-5 pb-2">
+                  <span class="font-mono text-[10px] tracking-widest text-orange-deep uppercase block mb-1">${product.categoryLabel}</span>
+                  <h3 class="font-bold text-lg text-ink group-hover:text-orange transition-colors duration-200 font-display cursor-pointer" onclick="openProductModal(${index})">
+                    ${product.title}
+                  </h3>
+                  <p class="text-sm text-ink-2 mt-2 leading-relaxed line-clamp-2">${product.shortDescription}</p>
+                </div>
+              </div>
+              
+              <div class="pt-2 pb-1 border-t border-ink/5 mt-4 flex items-center justify-between">
+                <a onclick="openProductModal(${index})" class="text-[10px] font-mono font-bold text-orange hover:text-orange-deep hover:underline tracking-widest uppercase transition-colors duration-200 cursor-pointer inline-flex items-center gap-1">
+                  View Product <iconify-icon icon="ph:arrow-right-bold" class="text-xs"></iconify-icon>
+                </a>
+                <span class="text-[9px] font-mono text-muted uppercase tracking-wider">${product.pack.split(' / ')[0]}</span>
+              </div>
+            `;
+            grid.appendChild(card);
+          }
+        });
+
+        // Toggle clear search button visibility
+        const clearBtn = document.getElementById('clear-search-btn');
+        if (searchQuery) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+
+        // Show "No products found" if none match
+        if (filteredCount === 0) {
+          grid.innerHTML = `
+            <div class="col-span-full py-16 text-center">
+              <span class="text-4xl text-muted/40 block mb-4"><iconify-icon icon="ph:egg-crack-bold"></iconify-icon></span>
+              <h4 class="font-bold text-lg text-ink font-display">No products found</h4>
+              <p class="text-sm text-muted mt-2 max-w-sm mx-auto font-sans leading-relaxed">We couldn't find anything matching "${searchQuery}" in this category. Try adjusting your search query or filters.</p>
+              <button onclick="clearFilters()" class="mt-6 border border-orange text-orange hover:bg-orange hover:text-white px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer">
+                Reset all filters
+              </button>
+            </div>
+          `;
+        }
+      }
+
+      function handleSearchAndFilter() {
+        renderProducts();
+      }
+
+      function filterProducts(category) {
+        currentFilterCategory = category;
+        
+        // Toggle tab button active classes
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        document.getElementById('tab-' + category).classList.add('active');
+
+        renderProducts();
+      }
+
+      // Clear search query
+      function clearSearch() {
+        document.getElementById('product-search').value = '';
+        renderProducts();
+      }
+
+      // Clear search query and reset category tab
+      function clearFilters() {
+        document.getElementById('product-search').value = '';
+        filterProducts('all');
+      }
+
+      // Dialog Actions
+      function openProductModal(idx) {
+        const product = productsData[idx];
+        if (!product) return;
+
+        document.getElementById('modal-product-image').src = product.image;
+        document.getElementById('modal-product-image').alt = "Zephirin's " + product.title;
+        document.getElementById('modal-product-category').textContent = product.categoryLabel;
+        document.getElementById('modal-product-title').textContent = product.title;
+        document.getElementById('modal-product-long-desc').textContent = product.longDescription;
+        document.getElementById('modal-product-pack').textContent = product.pack;
+        document.getElementById('modal-product-sizing').textContent = product.sizing;
+        document.getElementById('modal-product-ingredients').textContent = product.ingredients;
+
+        // Badge removed
+
+        const modal = document.getElementById('product-modal');
+        modal.showModal();
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeProductModal() {
+        const modal = document.getElementById('product-modal');
+        modal.close();
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+      }
+
+      // Dialog close/cancel listeners to restore scroll
+      const modal = document.getElementById('product-modal');
+      if (modal) {
+        modal.addEventListener('close', () => {
+          document.body.style.overflow = '';
+        });
+        modal.addEventListener('cancel', () => {
+          document.body.style.overflow = '';
+        });
+
+        // Fallback for browsers without closedby support
+        if (!('closedBy' in HTMLDialogElement.prototype)) {
+          modal.addEventListener('click', (event) => {
+            if (event.target !== modal) return;
+            const rect = modal.getBoundingClientRect();
+            const isModalContent = (
+              rect.top <= event.clientY &&
+              event.clientY <= rect.top + rect.height &&
+              rect.left <= event.clientX &&
+              event.clientX <= rect.left + rect.width
+            );
+            if (!isModalContent) {
+              closeProductModal();
+            }
+          });
+        }
+      }
+
+
+      // Mobile nav drawer toggle
+      function toggleMobileNav() {
+        const drawer = document.getElementById('mobile-nav-drawer');
+        const backdrop = document.getElementById('mobile-nav-backdrop');
+        if (drawer.classList.contains('-translate-x-full')) {
+          drawer.classList.remove('-translate-x-full');
+          backdrop.classList.remove('opacity-0', 'pointer-events-none');
+          backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        } else {
+          drawer.classList.add('-translate-x-full');
+          backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+          backdrop.classList.add('opacity-0', 'pointer-events-none');
+        }
+      }
+
+      // Floating store info widget toggle
+      function toggleStoreInfo() {
+        const card = document.getElementById('store-info-card');
+        if (card.classList.contains('hidden')) {
+          card.classList.remove('hidden');
+          card.offsetHeight; // trigger reflow
+          card.classList.remove('opacity-0', 'scale-95');
+          card.classList.add('opacity-100', 'scale-100');
+        } else {
+          card.classList.remove('opacity-100', 'scale-100');
+          card.classList.add('opacity-0', 'scale-95');
+          setTimeout(() => {
+            card.classList.add('hidden');
+          }, 300);
+        }
+      }
+
+      // Initial render on page load
+      window.addEventListener('DOMContentLoaded', () => {
+        renderProducts();
+      });
+    </script>
+
+    <!-- ============ MOBILE NAVIGATION DRAWER (Slide from Left) ============ -->
+    <div id="mobile-nav-drawer" class="fixed inset-y-0 left-0 z-50 w-full max-w-sm bg-ink text-white transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between p-8 overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+          <a href="concept8.html" class="flex items-center">
+            <img src="images/zephirin-bakeries-logo-white-text.png" alt="Zephirin's Bakery" class="h-10 w-auto" />
+          </a>
+          <button onclick="toggleMobileNav()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 text-white transition-colors cursor-pointer" aria-label="Close menu">
+            <iconify-icon icon="ph:x-bold" class="text-xl"></iconify-icon>
+          </button>
+        </div>
+
+        <!-- Navigation Links (Mobile Only) -->
+        <nav class="flex flex-col gap-5 text-lg font-bold uppercase tracking-wider font-display lg:hidden mb-8">
+          <a href="concept8.html" class="hover:text-yellow transition-colors">Home</a>
+          <div class="space-y-2">
+            <span class="text-white/40 text-xs font-mono tracking-widest block uppercase">Products</span>
+            <div class="pl-4 flex flex-col gap-3 border-l border-white/10">
+              <a href="bakery8.html" class="text-white hover:text-yellow transition-colors text-base font-semibold">Bakery</a>
+              <a href="convenience8.html" class="text-white hover:text-yellow transition-colors text-base">Convenience Store</a>
+            </div>
+          </div>
+          <a href="recipes8.html" class="hover:text-yellow transition-colors">Recipes</a>
+          <a href="locator8.html" class="hover:text-yellow transition-colors">Find Us</a>
+          <a href="about8.html" class="hover:text-yellow transition-colors">Heritage & Community</a>
+          <a href="feedback8.html" class="hover:text-yellow transition-colors">Contact</a>
+        </nav>
+
+        <!-- Convenience Store Information Section (Always Visible) -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-2">
+            <iconify-icon icon="ph:storefront-bold" class="text-yellow text-2xl"></iconify-icon>
+            <h3 class="font-display font-bold text-lg text-white">Zephirin's Convenience Store</h3>
+          </div>
+          <p class="text-xs text-white/60 leading-relaxed font-mono">
+            Located right next to our Bridgetown ovens. Drop in for daily essentials, cold drinks, and hot baked bread straight from the kitchen.
+          </p>
+          
+          <!-- Opening Hours Card -->
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-3 font-mono text-xs">
+            <p class="text-yellow font-bold uppercase tracking-widest text-[10px] mb-2 flex items-center gap-1.5">
+              <iconify-icon icon="ph:clock-bold" class="text-sm"></iconify-icon>
+              Opening Hours
+            </p>
+            <div class="flex justify-between">
+              <span class="text-white/60">Open Daily</span>
+              <span class="text-white font-semibold">6:30 AM - 9:00 PM</span>
+            </div>
+          </div>
+
+          <!-- Location Detail -->
+          <div class="flex items-start gap-2.5 text-xs text-white/70 font-mono">
+            <iconify-icon icon="ph:map-pin-bold" class="text-yellow text-lg mt-0.5"></iconify-icon>
+            <div>
+              <p class="font-bold text-white">Address</p>
+              <p class="mt-0.5">Tudor Bridge, Bridgetown</p>
+              <p>Saint Michael, Barbados</p>
+            </div>
+          </div>
+          
+          <a href="convenience8.html" class="block w-full bg-orange hover:bg-orange-deep text-white text-center py-3 rounded-xl font-bold uppercase tracking-wider text-xs transition-all duration-200">
+            Visit Store Page
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-6 mt-8 space-y-4">
+        <a href="contact8.html" class="bg-orange hover:bg-orange-deep text-white block text-center py-3.5 font-bold uppercase tracking-wider text-xs transition-all duration-200 rounded-full">
+          Stock Zephrin's
+        </a>
+        <div class="space-y-2 text-xs text-white/50 font-mono">
+          <p>P: 1-246-538-1426</p>
+          <p>E: hello@zephirinsbakery.bb</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Backdrop for drawer -->
+    <div id="mobile-nav-backdrop" class="fixed inset-0 z-40 bg-ink/50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleMobileNav()"></div>
+
+    <!-- ============ FLOATING STORE INFO WIDGET ============ -->
+    <div class="fixed bottom-6 right-6 z-40 font-mono">
+      <!-- Expanded Card (Hidden by default, toggled via JS) -->
+      <div id="store-info-card" class="hidden absolute bottom-16 right-0 w-80 bg-ink text-white rounded-3xl p-6 shadow-2xl border border-white/10 transition-all duration-300 opacity-0 scale-95 origin-bottom-right">
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+          <div class="flex items-center gap-2">
+            <iconify-icon icon="ph:storefront-bold" class="text-yellow text-xl"></iconify-icon>
+            <span class="font-display font-bold text-sm tracking-wide">Convenience Store</span>
+          </div>
+          <button onclick="toggleStoreInfo()" class="text-white/60 hover:text-white transition-colors cursor-pointer" aria-label="Close card">
+            <iconify-icon icon="ph:x-bold" class="text-sm"></iconify-icon>
+          </button>
+        </div>
+        
+        <p class="text-xs text-white/70 mb-4 leading-relaxed">
+          Call us directly during opening hours to place orders, check fresh bread drops, or verify stock.
+        </p>
+
+        <!-- Hours -->
+        <div class="space-y-2 text-xs border-b border-white/5 pb-4 mb-4">
+          <div class="flex justify-between">
+            <span class="text-white/50">Open Daily</span>
+            <span class="font-semibold text-white">6:30 AM - 9:00 PM</span>
+          </div>
+        </div>
+
+        <!-- Call & WhatsApp Actions -->
+        <div class="space-y-2">
+          <a href="tel:12465381426" class="flex items-center justify-center gap-2 bg-orange hover:bg-orange-deep text-white rounded-full py-3 text-xs font-bold uppercase tracking-wider transition-colors duration-200">
+            <iconify-icon icon="ph:phone-call-bold" class="text-sm"></iconify-icon>
+            Call: 1-246-538-1426
+          </a>
+          <a href="https://wa.me/12465381426" target="_blank" class="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full py-3 text-xs font-bold uppercase tracking-wider transition-colors duration-200">
+            <iconify-icon icon="ph:whatsapp-logo-bold" class="text-base"></iconify-icon>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Trigger Button -->
+      <button onclick="toggleStoreInfo()" class="flex items-center gap-2.5 bg-ink text-white hover:bg-ink-2 px-5 py-3 rounded-full border border-white/15 shadow-xl transition-all duration-200 group cursor-pointer hover:scale-105 active:scale-95" aria-label="View Store Info">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow"></span>
+        </span>
+        <iconify-icon icon="ph:phone-call-bold" class="text-sm text-yellow group-hover:rotate-12 transition-transform"></iconify-icon>
+        <span class="text-xs font-bold uppercase tracking-wider font-display">Store Info</span>
+      </button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zephirin's Bakery — Barbados' Premium Heritage Bakery (Concept 8B)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-orange: var(--orange);
+        --color-orange-deep: var(--orange-deep);
+        --color-yellow: var(--yellow);
+        --color-ink: var(--ink);
+        --color-ink-2: var(--ink-2);
+        --color-muted: var(--muted);
+        --color-cream: var(--cream);
+        --color-paper: var(--paper);
+        --font-family-display: var(--font-display);
+        --font-family-mono: var(--font-mono);
+      }
+      :root {
+        --orange: #FF5A1F;
+        --orange-deep: #E8410A;
+        --yellow: #FFB02E;
+        --ink: #16120C;
+        --ink-2: #443C31;
+        --muted: #857A69;
+        --cream: #FFF5EA;
+        --paper: #FFFFFF;
+        --font-display: 'Archivo', sans-serif;
+        --font-mono: 'IBM Plex Mono', monospace;
+      }
+      body { font-family: var(--font-display); color: var(--ink); background: var(--paper); }
+      .font-mono { font-family: var(--font-mono); }
+
+      .text-display { font-size: clamp(2.875rem, 2rem + 4.4vw, 6.5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.92; }
+      .text-hero    { font-size: clamp(2.5rem, 1.9rem + 3vw, 4.5rem);   font-weight: 900; letter-spacing: -0.04em; line-height: 0.96; }
+      .text-h2      { font-size: clamp(2rem, 1.5rem + 2.5vw, 3.75rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+      .text-h3      { font-size: clamp(1.375rem, 1.2rem + 0.9vw, 1.875rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+      .text-lead    { font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem); font-weight: 400; line-height: 1.55; color: var(--ink-2); }
+      .eyebrow { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange-deep); }
+
+      .eyebrow-rule { display:inline-flex; align-items:center; gap: 0.6rem; }
+      .eyebrow-rule::before { content:""; display:inline-block; width: 28px; height: 2px; background: var(--orange); }
+
+      .btn-primary { background: var(--orange); color: #fff; transition: background .2s ease, transform .2s ease; }
+      .btn-primary:hover { background: var(--orange-deep); transform: translateY(-1px); }
+      .btn-dark { background: var(--ink); color: #fff; transition: opacity .2s ease, transform .2s ease; }
+      .btn-dark:hover { opacity: .85; transform: translateY(-1px); }
+      .btn-outline { border: 1.5px solid #fff; color: #fff; transition: background .2s ease, color .2s ease; }
+      .btn-outline:hover { background: #fff; color: var(--ink); }
+      .btn-outline-dark { border: 1.5px solid var(--ink); color: var(--ink); transition: background .2s ease, color .2s ease; }
+      .btn-outline-dark:hover { background: var(--ink); color: #fff; }
+
+      .sunrise-dot {
+        background: radial-gradient(circle at 32% 30%, var(--yellow) 0%, var(--orange) 55%, var(--orange-deep) 100%);
+      }
+      .card-hover { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+      .card-hover:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -16px rgba(22,18,12,0.18); border-color: var(--orange); }
+
+      /* Flip Box styling overrides for Safari & browser-native 3D transforms */
+      .flip-card {
+        perspective: 1000px;
+        -webkit-perspective: 1000px;
+      }
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.7s;
+        -webkit-transition: -webkit-transform 0.7s;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+      }
+      .flip-card:hover .flip-card-inner,
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+      }
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      .flip-card-back {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+      }
+
+      /* Mobile Navigation Overlay */
+      #mobile-nav-menu.active { opacity: 1; pointer-events: auto; }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-orange/20 selection:text-orange-deep">
+    <!-- ============ 1. TOP STRIP ============ -->
+    <div class="bg-ink text-yellow text-xs border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 h-11 flex items-center justify-between font-mono tracking-wider">
+        <div class="flex items-center gap-4 mx-auto sm:mx-0">
+          <a href="index.html" class="text-yellow hover:text-white transition-colors flex items-center gap-1.5 font-bold uppercase"><iconify-icon icon="ph:arrow-left-bold"></iconify-icon> Back to Proposal</a>
+          <span class="text-white/20">•</span>
+          <span>P: 1-246-538-1426</span>
+          <span class="text-white/20">•</span>
+          <span>E: hello@zephirinsbakery.bb</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-4 text-base">
+          <a href="https://www.instagram.com/zephirinsbakeries/" target="_blank" class="hover:text-white transition-colors flex items-center" aria-label="Instagram"><iconify-icon icon="ph:instagram-logo-bold"></iconify-icon></a>
+          <span class="text-white/20">•</span>
+          <a href="https://www.facebook.com/zephirinsbakeries/" target="_blank" class="hover:text-white transition-colors flex items-center" aria-label="Facebook"><iconify-icon icon="ph:facebook-logo-bold"></iconify-icon></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SPLIT SITE HEADER (Saint Valentine Inspired) ============ -->
+    <header class="w-full border-b border-ink/10 sticky top-0 z-50 bg-paper transition-all duration-300">
+      <div class="flex flex-col lg:flex-row w-full items-stretch">
+        
+        <!-- Left White Panel: Logo & Navigation (72% Width on Large Screens) -->
+        <div class="w-full lg:w-[72%] bg-paper flex items-center justify-between px-6 lg:px-10 py-4 lg:py-0 min-h-[110px]">
+          
+          <!-- Logo Block -->
+          <a href="concept8_b.html" class="flex items-center">
+            <img src="images/zephirin-bakeries-logo-transparent.png" alt="Zephirin's Bakery" class="h-[100px] w-auto" />
+          </a>
+          
+          <!-- Central Navigation Links -->
+          <nav class="hidden lg:flex items-center gap-6 xl:gap-7 text-sm font-semibold text-ink-2">
+            <a href="concept8_b.html" class="text-ink relative pb-1 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-[2px] after:h-[2px] after:bg-orange">Home</a>
+            
+            <!-- Products Dropdown -->
+            <div class="relative group py-4">
+              <button class="hover:text-orange transition-colors flex items-center gap-1 font-semibold cursor-pointer">
+                Products
+                <iconify-icon icon="ph:caret-down-bold" class="text-xs transition-transform duration-200 group-hover:rotate-180"></iconify-icon>
+              </button>
+              <div class="absolute left-0 mt-2 w-48 bg-paper border border-ink/10 rounded-2xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <a href="bakery8.html" class="block px-4 py-2.5 text-xs text-ink hover:bg-cream hover:text-orange transition-colors font-medium normal-case">Bakery</a>
+                <a href="convenience8.html" class="block px-4 py-2.5 text-xs text-ink hover:bg-cream hover:text-orange transition-colors font-medium normal-case">Convenience Store</a>
+              </div>
+            </div>
+
+            <a href="recipes8.html" class="hover:text-orange transition-colors">Recipes</a>
+            <a href="locator8.html" class="hover:text-orange transition-colors">Where to Find Us</a>
+            <a href="about8.html" class="hover:text-orange transition-colors">Heritage & Community</a>
+            <a href="feedback8.html" class="hover:text-orange transition-colors">Contact</a>
+          </nav>
+
+          <!-- Hamburger menu (Mobile Only) -->
+          <button onclick="toggleMobileNav()" class="lg:hidden w-10 h-10 flex items-center justify-center border border-ink/10 rounded-full text-ink hover:bg-cream">
+            <iconify-icon icon="ph:list-bold" class="text-xl"></iconify-icon>
+          </button>
+
+        </div>
+
+        <!-- Right Black Panel: CTA & Call Info (28% Width on Large Screens) -->
+        <div class="hidden lg:flex w-[28%] bg-ink text-white items-center justify-between px-6 xl:px-8 py-4 border-l border-white/5">
+          <!-- CTA button -->
+          <a href="contact8.html" class="bg-yellow hover:opacity-90 text-ink rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider font-mono transition-all duration-200">Stock Zephrin's</a>
+          
+          <!-- Contact Phone Info -->
+          <div class="flex items-center gap-2.5 text-left">
+            <span class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-yellow text-sm">
+              <iconify-icon icon="ph:phone-bold"></iconify-icon>
+            </span>
+            <div class="font-mono leading-none">
+              <span class="text-[9px] text-white/50 block mb-0.5">CALL US</span>
+              <span class="text-xs font-bold text-white whitespace-nowrap">1-246-538-1426</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div id="mobile-nav-menu" class="fixed inset-0 z-40 bg-ink/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6 lg:hidden">
+      <button onclick="toggleMobileNav()" class="absolute top-6 right-6 w-12 h-12 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white/10">
+        <iconify-icon icon="ph:x-bold" class="text-lg"></iconify-icon>
+      </button>
+      <nav class="flex flex-col gap-6 text-xl font-bold text-white/80 font-mono uppercase tracking-wider">
+        <a href="concept8_b.html" class="text-white hover:text-orange">Home</a>
+        <a href="bakery8.html" class="hover:text-white">Bakery</a>
+        <a href="convenience8.html" class="hover:text-white">Convenience Store</a>
+        <a href="recipes8.html" class="hover:text-white">Recipes</a>
+        <a href="locator8.html" class="hover:text-white">Where to Find Us</a>
+        <a href="about8.html" class="hover:text-white">Heritage & Community</a>
+        <a href="feedback8.html" class="hover:text-white">Contact</a>
+      </nav>
+      <div class="mt-12 flex flex-col items-center gap-4 border-t border-white/10 pt-8 w-full max-w-xs text-white">
+        <p class="text-xs font-mono text-white/50 mt-2">P: 1-246-538-1426</p>
+      </div>
+    </div>
+
+    <!-- ============ SPLIT HERO SECTION (Saint Valentine Inspired Layout) ============ -->
+    <section class="relative overflow-hidden w-full bg-orange-deep">
+      <div class="flex flex-col lg:flex-row w-full items-stretch min-h-[60vh] lg:min-h-[72vh]">
+        
+        <!-- Left Hero Text block: Orange Background (40% Width) -->
+        <div class="w-full lg:w-[40%] bg-orange-deep text-white p-8 md:p-12 xl:p-16 flex flex-col justify-center relative">
+          <div class="max-w-md mx-auto lg:mx-0">
+            <span class="font-mono text-xs text-ink uppercase tracking-widest block mb-4">WHAT WE BAKE</span>
+            
+            <!-- Headline block with dark highlighted background block -->
+            <h1 class="text-hero leading-none text-white">
+              Morning <br/>
+              <span class="inline-block bg-ink text-orange-deep font-black px-4 py-2 mt-2 select-none">SUNRISE</span>
+            </h1>
+            
+            <p class="text-sm text-ink mt-6 leading-relaxed">
+              Elevating breakfast tables across every parish in Barbados. Sifted by hand, slow-proven, and fresh baked daily before the island wakes.
+            </p>
+            
+            <div class="mt-8">
+              <a href="about8.html" class="btn-dark inline-flex items-center gap-2 rounded-full px-7 py-3 text-xs font-bold uppercase tracking-wider font-mono">
+                learn more
+                <iconify-icon icon="ph:arrow-right-bold" class="text-sm"></iconify-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Image block: Large Showcase (60% Width) -->
+        <div class="w-full lg:w-[60%] min-h-[350px] lg:min-h-0 relative bg-cream">
+          <img src="images/hero_breakfast_scene.jpg" alt="Barbadian breakfast table with Zephirin's fresh baked goods" class="absolute inset-0 w-full h-full object-cover" />
+          
+          <!-- Circular Badge floating overlay -->
+          <div class="absolute top-6 right-6 bg-paper/90 backdrop-blur border border-ink/10 rounded-full px-5 py-2 shadow-lg text-[10px] font-bold font-mono tracking-widest text-ink flex items-center gap-1.5 uppercase">
+            <iconify-icon icon="ph:sparkle-fill" class="text-orange animate-spin-slow"></iconify-icon>
+            EST. 1923
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============ THREE-SPLIT BOTTOM RIBBON (Saint Valentine Inspired) ============ -->
+      <div class="grid md:grid-cols-12 w-full text-white font-mono text-[11px] xl:text-xs tracking-wider border-t border-white/5">
+        <!-- Block 1: Red-Orange background -->
+        <div class="md:col-span-4 bg-orange-deep hover:bg-orange transition-colors flex items-center justify-center py-5 px-6 gap-2 text-center border-b md:border-b-0 md:border-r border-white/10">
+          <iconify-icon icon="ph:envelope-simple-bold" class="text-yellow text-sm"></iconify-icon>
+          <span>hello@zephirinsbakery.bb</span>
+        </div>
+        <!-- Block 2: Red-Orange background -->
+        <div class="md:col-span-4 bg-orange-deep hover:bg-orange transition-colors flex items-center justify-center py-5 px-6 gap-2 text-center border-b md:border-b-0 md:border-r border-white/10">
+          <iconify-icon icon="ph:phone-bold" class="text-yellow text-sm"></iconify-icon>
+          <span>1-246-538-1426</span>
+        </div>
+        <!-- Block 3: Black background -->
+        <div class="md:col-span-4 bg-ink hover:bg-ink-2 transition-colors flex items-center justify-center py-5 px-6 gap-2 text-center">
+          <iconify-icon icon="ph:map-pin-bold" class="text-yellow text-sm"></iconify-icon>
+          <span>Tudor Bridge, Bridgetown, Saint Michael Barbados</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. "WHO WE ARE" / ABOUT SECTION ============ -->
+    <section id="about" class="py-24 lg:py-32 bg-paper">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Overlapping Image Collage -->
+        <div class="relative flex items-center justify-center w-full min-h-[460px] md:min-h-[520px]">
+          <!-- Large vertical Main image -->
+          <div class="absolute left-0 top-0 w-[55%] aspect-[3/4] rounded-3xl overflow-hidden shadow-xl border border-ink/5 z-10 transition-transform duration-500 hover:scale-[1.02]">
+            <img src="images/zephirins_factory_exterior_highres.png" alt="Zephirin's bakery storefront" class="w-full h-full object-cover" />
+          </div>
+          <!-- Offset horizontal image -->
+          <div class="absolute right-0 bottom-0 w-[60%] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-paper z-20 transition-transform duration-500 hover:scale-[1.02]">
+            <img src="images/modern_dough_shaping.png" alt="Fresh bread out of the oven" class="w-full h-full object-cover" />
+          </div>
+          <!-- Decorative Background Glow -->
+          <div class="absolute top-[20%] right-[30%] w-36 h-36 rounded-full sunrise-dot opacity-30 blur-2xl z-0"></div>
+        </div>
+        
+        <!-- Text details and progress bars -->
+        <div>
+          <p class="eyebrow eyebrow-rule mb-5">Who We Are</p>
+          <h2 class="text-h2">Building a century of mornings.</h2>
+          <p class="text-lead mt-6 max-w-lg">
+            We are more than just a bakery — we are a family of bakers committed to doing one thing properly: putting bread Barbados can rely on into every basket, every morning. From a single oven in 1923 to vans crossing every parish before dawn, the recipe for what matters hasn't changed.
+          </p>
+
+          <!-- Modern Animated Progress Bars -->
+          <div class="mt-10 space-y-6 max-w-lg">
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-2">
+                <span class="text-ink font-mono uppercase tracking-wider text-xs">Centuries Baked</span>
+                <span class="text-orange font-mono text-xs">100%</span>
+              </div>
+              <div class="w-full h-2 bg-cream rounded-full overflow-hidden">
+                <div class="h-full bg-orange rounded-full transition-all duration-1000" style="width: 100%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-2">
+                <span class="text-ink font-mono uppercase tracking-wider text-xs">Parish Deliveries</span>
+                <span class="text-orange font-mono text-xs">100%</span>
+              </div>
+              <div class="w-full h-2 bg-cream rounded-full overflow-hidden">
+                <div class="h-full bg-orange rounded-full transition-all duration-1000" style="width: 100%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-2">
+                <span class="text-ink font-mono uppercase tracking-wider text-xs">Sunrise Satisfaction</span>
+                <span class="text-orange font-mono text-xs">95%</span>
+              </div>
+              <div class="w-full h-2 bg-cream rounded-full overflow-hidden">
+                <div class="h-full bg-orange rounded-full transition-all duration-1000" style="width: 95%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap items-center gap-6">
+            <a href="contact8.html" class="btn-dark inline-flex items-center gap-2 rounded-full px-8 py-3.5 font-semibold">
+              Get in touch
+              <iconify-icon icon="ph:arrow-right-bold"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. HORIZONTAL BANNERS (4 stacked rows) ============ -->
+    <section class="w-full flex flex-col border-t border-b border-ink/10 bg-paper">
+      <!-- Row 1 -->
+      <a href="products8.html" class="group relative block w-full overflow-hidden border-b border-ink/10">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105" style="background-image: linear-gradient(to right, rgba(22, 18, 12, 0.75) 0%, rgba(22, 18, 12, 0.4) 100%), url('images/salt_bread.png');"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 py-12 lg:py-16 relative z-10 flex items-center justify-between text-white">
+          <div>
+            <p class="font-mono text-xs text-yellow tracking-widest uppercase mb-1">01 — Daily Breads</p>
+            <h3 class="text-h3 font-display transition-colors group-hover:text-yellow">Salt bread, coconut bread &amp; whole wheat</h3>
+          </div>
+          <span class="w-12 h-12 rounded-full bg-white/10 group-hover:bg-orange text-white flex items-center justify-center transition-colors shadow-sm group-hover:translate-x-2 duration-300">
+            <iconify-icon icon="ph:arrow-right-bold" class="text-xl"></iconify-icon>
+          </span>
+        </div>
+      </a>
+
+      <!-- Row 2 -->
+      <a href="products8.html" class="group relative block w-full overflow-hidden border-b border-ink/10">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105" style="background-image: linear-gradient(to right, rgba(22, 18, 12, 0.75) 0%, rgba(22, 18, 12, 0.4) 100%), url('images/hamburger_buns_1777241720309.png');"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 py-12 lg:py-16 relative z-10 flex items-center justify-between text-white">
+          <div>
+            <p class="font-mono text-xs text-yellow tracking-widest uppercase mb-1">02 — Buns &amp; Rolls</p>
+            <h3 class="text-h3 font-display transition-colors group-hover:text-yellow">Burger buns, dinner rolls &amp; sweet bakes</h3>
+          </div>
+          <span class="w-12 h-12 rounded-full bg-white/10 group-hover:bg-orange text-white flex items-center justify-center transition-colors shadow-sm group-hover:translate-x-2 duration-300">
+            <iconify-icon icon="ph:arrow-right-bold" class="text-xl"></iconify-icon>
+          </span>
+        </div>
+      </a>
+
+      <!-- Row 3 -->
+      <a href="products8.html" class="group relative block w-full overflow-hidden border-b border-ink/10">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105" style="background-image: linear-gradient(to right, rgba(22, 18, 12, 0.75) 0%, rgba(22, 18, 12, 0.4) 100%), url('images/raisin_bread.png');"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 py-12 lg:py-16 relative z-10 flex items-center justify-between text-white">
+          <div>
+            <p class="font-mono text-xs text-yellow tracking-widest uppercase mb-1">03 — Teatime &amp; Treats</p>
+            <h3 class="text-h3 font-display transition-colors group-hover:text-yellow">Raisin bread, bread pudding &amp; hot cross buns</h3>
+          </div>
+          <span class="w-12 h-12 rounded-full bg-white/10 group-hover:bg-orange text-white flex items-center justify-center transition-colors shadow-sm group-hover:translate-x-2 duration-300">
+            <iconify-icon icon="ph:arrow-right-bold" class="text-xl"></iconify-icon>
+          </span>
+        </div>
+      </a>
+
+      <!-- Row 4 -->
+      <a href="convenience8.html" class="group relative block w-full overflow-hidden last:border-0">
+        <div class="absolute inset-0 bg-cover transition-transform duration-700 ease-in-out group-hover:scale-105" style="background-image: linear-gradient(to right, rgba(22, 18, 12, 0.75) 0%, rgba(22, 18, 12, 0.4) 100%), url('images/zephirins_factory_exterior_highres.png'); background-position: center 14%;"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20 relative z-10 flex items-center justify-between text-white">
+          <div>
+            <p class="font-mono text-xs text-yellow tracking-widest uppercase mb-1">04 — Convenience Store</p>
+            <h3 class="text-h3 font-display transition-colors group-hover:text-yellow">Zephrin's Convenience Store opens 7 days a week from 6:30a.m to 9:00p.m</h3>
+          </div>
+          <span class="w-12 h-12 rounded-full bg-white/10 group-hover:bg-orange text-white flex items-center justify-center transition-colors shadow-sm group-hover:translate-x-2 duration-300">
+            <iconify-icon icon="ph:arrow-right-bold" class="text-xl"></iconify-icon>
+          </span>
+        </div>
+      </a>
+    </section>
+
+    <!-- ============ 7. GATEWAY TO PREMIUM SERVICES (Flip Boxes) ============ -->
+    <section id="services" class="py-24 lg:py-32 bg-cream">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-3 gap-12 items-start">
+        <!-- Left Side -->
+        <div class="lg:sticky lg:top-28">
+          <p class="eyebrow eyebrow-rule mb-4">Our Services</p>
+          <h2 class="text-h2">Gateway to premium.</h2>
+          <p class="text-lead mt-6 max-w-sm">Every day we bake fresh to supply the island. Find where to purchase our bread near you.</p>
+          <a href="locator8.html" class="btn-outline-dark inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-wider font-mono mt-6">
+            Where to find us
+            <iconify-icon icon="ph:arrow-right-bold"></iconify-icon>
+          </a>
+        </div>
+
+        <!-- Right Side Flip Box Grid -->
+        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="flip-card w-full h-[320px] [perspective:1000px] cursor-pointer" onclick="toggleFlip(this)">
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d]">
+              <!-- Front -->
+              <div class="flip-card-front absolute inset-0 w-full h-full [backface-visibility:hidden] bg-paper border border-ink/5 rounded-3xl p-8 flex flex-col justify-between shadow-sm">
+                <div class="flex flex-col gap-6">
+                  <span class="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center text-2xl text-orange"><iconify-icon icon="ph:bread-bold"></iconify-icon></span>
+                  <div>
+                    <h3 class="font-bold text-xl text-ink font-display">Daily Baking</h3>
+                    <p class="text-xs text-muted mt-2 font-mono uppercase tracking-wider">Est. 1923</p>
+                  </div>
+                </div>
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-orange">Flip for info <iconify-icon icon="ph:arrow-right-bold" class="text-xs"></iconify-icon></span>
+              </div>
+              <!-- Back -->
+              <div class="flip-card-back absolute inset-0 w-full h-full [backface-visibility:hidden] bg-ink text-white rounded-3xl p-8 flex flex-col justify-between [transform:rotateY(180deg)] shadow-md">
+                <div class="flex flex-col gap-4">
+                  <h3 class="font-bold text-xl text-yellow font-display">Daily Baking</h3>
+                  <p class="text-sm text-white/70 leading-relaxed">Fresh loaves, salt bread, coconut buns and sweet pastries, baked fresh and hot before sunrise every single day.</p>
+                </div>
+                <a href="bakery8.html" class="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold w-full">View Products</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flip-card w-full h-[320px] [perspective:1000px] cursor-pointer" onclick="toggleFlip(this)">
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d]">
+              <!-- Front -->
+              <div class="flip-card-front absolute inset-0 w-full h-full [backface-visibility:hidden] bg-paper border border-ink/5 rounded-3xl p-8 flex flex-col justify-between shadow-sm">
+                <div class="flex flex-col gap-6">
+                  <span class="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center text-2xl text-orange"><iconify-icon icon="ph:truck-bold"></iconify-icon></span>
+                  <div>
+                    <h3 class="font-bold text-xl text-ink font-display">Island-Wide Availability</h3>
+                    <p class="text-xs text-muted mt-2 font-mono uppercase tracking-wider">Supermarkets &amp; Retailers</p>
+                  </div>
+                </div>
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-orange">Flip for info <iconify-icon icon="ph:arrow-right-bold" class="text-xs"></iconify-icon></span>
+              </div>
+              <!-- Back -->
+              <div class="flip-card-back absolute inset-0 w-full h-full [backface-visibility:hidden] bg-ink text-white rounded-3xl p-8 flex flex-col justify-between [transform:rotateY(180deg)] shadow-md">
+                <div class="flex flex-col gap-4">
+                  <h3 class="font-bold text-xl text-yellow font-display">Island-Wide Availability</h3>
+                  <p class="text-sm text-white/70 leading-relaxed">Our fresh bread and bakery products are delivered daily and available at major supermarkets, convenience stores, and retail partners across Barbados.</p>
+                </div>
+                <a href="locator8.html" class="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold w-full">Where to Find Us</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="flip-card w-full h-[320px] [perspective:1000px] cursor-pointer" onclick="toggleFlip(this)">
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d]">
+              <!-- Front -->
+              <div class="flip-card-front absolute inset-0 w-full h-full [backface-visibility:hidden] bg-paper border border-ink/5 rounded-3xl p-8 flex flex-col justify-between shadow-sm">
+                <div class="flex flex-col gap-6">
+                  <span class="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center text-2xl text-orange"><iconify-icon icon="ph:storefront-bold"></iconify-icon></span>
+                  <div>
+                    <h3 class="font-bold text-xl text-ink font-display">Convenience Store</h3>
+                    <p class="text-xs text-muted mt-2 font-mono uppercase tracking-wider">Daily Essentials</p>
+                  </div>
+                </div>
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-orange">Flip for info <iconify-icon icon="ph:arrow-right-bold" class="text-xs"></iconify-icon></span>
+              </div>
+              <!-- Back -->
+              <div class="flip-card-back absolute inset-0 w-full h-full [backface-visibility:hidden] bg-ink text-white rounded-3xl p-8 flex flex-col justify-between [transform:rotateY(180deg)] shadow-md">
+                <div class="flex flex-col gap-4">
+                  <h3 class="font-bold text-xl text-yellow font-display">Convenience Store</h3>
+                  <p class="text-sm text-white/70 leading-relaxed">Visit our convenience store right next to our ovens. Grab fresh salt bread drops, ice-cold drinks, Bajan snacks, and daily groceries.</p>
+                </div>
+                <a href="convenience8.html" class="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold w-full">View Products</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flip-card w-full h-[320px] [perspective:1000px] cursor-pointer" onclick="toggleFlip(this)">
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d]">
+              <!-- Front -->
+              <div class="flip-card-front absolute inset-0 w-full h-full [backface-visibility:hidden] bg-paper border border-ink/5 rounded-3xl p-8 flex flex-col justify-between shadow-sm">
+                <div class="flex flex-col gap-6">
+                  <span class="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center text-2xl text-orange"><iconify-icon icon="ph:book-open-bold"></iconify-icon></span>
+                  <div>
+                    <h3 class="font-bold text-xl text-ink font-display">Recipes &amp; Cooking</h3>
+                    <p class="text-xs text-muted mt-2 font-mono uppercase tracking-wider">Bake with Zephirin's</p>
+                  </div>
+                </div>
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-orange">Flip for info <iconify-icon icon="ph:arrow-right-bold" class="text-xs"></iconify-icon></span>
+              </div>
+              <!-- Back -->
+              <div class="flip-card-back absolute inset-0 w-full h-full [backface-visibility:hidden] bg-ink text-white rounded-3xl p-8 flex flex-col justify-between [transform:rotateY(180deg)] shadow-md">
+                <div class="flex flex-col gap-4">
+                  <h3 class="font-bold text-xl text-yellow font-display">Recipes &amp; Cooking</h3>
+                  <p class="text-sm text-white/70 leading-relaxed">Discover creative and delicious ways to prepare our signature bakery loaves, from classic Bajan bread pudding to gourmet sandwiches.</p>
+                </div>
+                <a href="recipes8.html" class="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold w-full">View Recipes</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. CLIENT TESTIMONIALS ============ -->
+    <section class="py-24 lg:py-32 bg-paper">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="max-w-2xl mb-16">
+          <p class="eyebrow eyebrow-rule mb-4">Reviews</p>
+          <h2 class="text-h2">Trusted in kitchens island-wide.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="border border-ink/10 rounded-3xl p-8 card-hover flex flex-col justify-between h-full bg-paper">
+            <div>
+              <div class="flex items-center gap-1 text-yellow text-sm mb-6">
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+              </div>
+              <h4 class="text-xl font-bold font-display text-ink mb-3">"The only salt bread we buy"</h4>
+              <p class="text-sm text-ink-2 leading-relaxed">"Nothing compares to a cutter made with Zephirin's Salt Bread. Soft on the inside with that perfect thin crust. It's a daily buy in our house."</p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-ink/5 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-orange flex items-center justify-center text-white font-mono font-bold text-xs">SJ</span>
+              <div class="font-mono leading-none">
+                <span class="text-xs font-bold text-ink block">Sarah Johnson</span>
+                <span class="text-[10px] text-muted mt-1 block">St. Michael</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="border border-ink/10 rounded-3xl p-8 card-hover flex flex-col justify-between h-full bg-paper">
+            <div>
+              <div class="flex items-center gap-1 text-yellow text-sm mb-6">
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+              </div>
+              <h4 class="text-xl font-bold font-display text-ink mb-3">"Flawless wholesale deliveries"</h4>
+              <p class="text-sm text-ink-2 leading-relaxed">"As a canteen manager, having our delivery van arrive before 6:00 AM is critical. The Zephirin's drivers are reliable, and the bread is always oven-fresh."</p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-ink/5 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-orange flex items-center justify-center text-white font-mono font-bold text-xs">MS</span>
+              <div class="font-mono leading-none">
+                <span class="text-xs font-bold text-ink block">Michael Smith</span>
+                <span class="text-[10px] text-muted mt-1 block">Warrens Canteen</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="border border-ink/10 rounded-3xl p-8 card-hover flex flex-col justify-between h-full bg-paper">
+            <div>
+              <div class="flex items-center gap-1 text-yellow text-sm mb-6">
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+                <iconify-icon icon="ph:star-fill"></iconify-icon>
+              </div>
+              <h4 class="text-xl font-bold font-display text-ink mb-3">"Molasses taste is authentic"</h4>
+              <p class="text-sm text-ink-2 leading-relaxed">"Their Coconut Bread is phenomenal. Grated coconut, cherries, and spices, baked with the same slow molasses recipe my grandmother used to make."</p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-ink/5 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-orange flex items-center justify-center text-white font-mono font-bold text-xs">ED</span>
+              <div class="font-mono leading-none">
+                <span class="text-xs font-bold text-ink block">Emily Davis</span>
+                <span class="text-[10px] text-muted mt-1 block">St. Philip</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ============ 10. A CENTURY IN NUMBERS (Counters section) ============ -->
+    <section class="relative bg-ink text-white py-24 lg:py-36 overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(rgba(22, 18, 12, 0.8), rgba(22, 18, 12, 0.9)), url('images/packaged_breads_banner.png'); background-attachment: fixed;">
+      <div class="absolute -bottom-32 -left-24 w-80 h-80 rounded-full sunrise-dot opacity-20 blur-3xl"></div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        <p class="eyebrow mb-3" style="color: var(--yellow);">A Century in Numbers</p>
+        <h2 class="text-h2 max-w-xl mb-16">Built morning by morning, since 1923.</h2>
+        
+        <div id="stats-section" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center sm:text-left">
+          <div>
+            <p class="counter font-display text-5xl lg:text-7xl font-black text-yellow" data-target="103">0</p>
+            <p class="mt-3 text-white/60 font-mono text-xs tracking-widest uppercase">Years Baking<br/>For Barbados</p>
+          </div>
+          <div>
+            <p class="counter font-display text-5xl lg:text-7xl font-black text-yellow" data-target="11">0</p>
+            <p class="mt-3 text-white/60 font-mono text-xs tracking-widest uppercase">Parishes<br/>Delivered Daily</p>
+          </div>
+          <div>
+            <p class="counter font-display text-5xl lg:text-7xl font-black text-yellow" data-target="50">0</p>
+            <p class="mt-3 text-white/60 font-mono text-xs tracking-widest uppercase">Products Baked<br/>Each Morning</p>
+          </div>
+          <div>
+            <p class="counter font-display text-5xl lg:text-7xl font-black text-yellow" data-target="300">0</p>
+            <p class="mt-3 text-white/60 font-mono text-xs tracking-widest uppercase">Loaves Out The<br/>Door Each Month</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT FORM / PARTNERSHIP INQUIRY ============ -->
+    <section id="contact-form-section" class="py-24 lg:py-32 bg-paper">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="rounded-[2.5rem] bg-cream p-10 md:p-16 grid lg:grid-cols-2 gap-12 items-center relative overflow-hidden">
+          
+          <!-- Glow -->
+          <div class="absolute -top-32 -left-32 w-80 h-80 rounded-full sunrise-dot opacity-25 blur-3xl z-0"></div>
+
+          <div class="relative z-10">
+            <p class="eyebrow eyebrow-rule mb-4">Get in touch</p>
+            <h2 class="text-h2">Let's get Zephirin's on your shelf.</h2>
+            <p class="text-lead mt-6">Stockists, canteens, hotels, or distributors — fill out the form or reach out directly. We will follow up within 24 hours.</p>
+            
+            <div class="mt-10 flex flex-col gap-6 text-sm font-mono text-ink-2">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full border border-ink/10 flex items-center justify-center text-orange"><iconify-icon icon="ph:phone-bold"></iconify-icon></span>
+                <span>1-246-538-1426</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full border border-ink/10 flex items-center justify-center text-orange"><iconify-icon icon="ph:envelope-simple-bold"></iconify-icon></span>
+                <span>hello@zephirinsbakery.bb</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actual form box -->
+          <div class="bg-paper border border-ink/10 p-8 md:p-10 rounded-3xl shadow-xl relative z-10">
+            
+            <form id="stockist-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+              <div>
+                <label for="name" class="block text-xs font-mono uppercase tracking-wider text-ink-2 mb-2">Full Name</label>
+                <input type="text" id="name" required class="w-full bg-cream rounded-xl px-4 py-3 text-sm text-ink outline-none border border-transparent focus:border-orange transition-all" placeholder="John Lashley" />
+              </div>
+              <div>
+                <label for="company" class="block text-xs font-mono uppercase tracking-wider text-ink-2 mb-2">Company / Shop Name</label>
+                <input type="text" id="company" required class="w-full bg-cream rounded-xl px-4 py-3 text-sm text-ink outline-none border border-transparent focus:border-orange transition-all" placeholder="Lashley's Mini Mart" />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-mono uppercase tracking-wider text-ink-2 mb-2">Email Address</label>
+                <input type="email" id="email" required class="w-full bg-cream rounded-xl px-4 py-3 text-sm text-ink outline-none border border-transparent focus:border-orange transition-all" placeholder="name@business.com" />
+              </div>
+              <div>
+                <label for="phone" class="block text-xs font-mono uppercase tracking-wider text-ink-2 mb-2">Telephone Number</label>
+                <input type="tel" id="phone" required class="w-full bg-cream rounded-xl px-4 py-3 text-sm text-ink outline-none border border-transparent focus:border-orange transition-all" placeholder="e.g. +1 246-XXX-XXXX" />
+              </div>
+              <div>
+                <label for="message" class="block text-xs font-mono uppercase tracking-wider text-ink-2 mb-2">Inquiry / Message</label>
+                <textarea id="message" rows="3" required class="w-full bg-cream rounded-xl px-4 py-3 text-sm text-ink outline-none border border-transparent focus:border-orange transition-all resize-none" placeholder="Tell us about your requirements..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full justify-center rounded-full py-3.5 font-semibold text-sm cursor-pointer flex items-center gap-2">
+                Submit inquiry
+                <iconify-icon icon="ph:arrow-right-bold"></iconify-icon>
+              </button>
+            </form>
+
+            <!-- Success Visual Feedback Panel -->
+            <div id="form-success" class="hidden absolute inset-0 bg-paper rounded-3xl p-8 flex flex-col items-center justify-center text-center z-20">
+              <span class="w-16 h-16 rounded-full bg-cream flex items-center justify-center text-3xl text-orange mb-6"><iconify-icon icon="ph:check-circle-bold"></iconify-icon></span>
+              <h3 class="font-display font-bold text-xl text-ink">Inquiry Submitted!</h3>
+              <p class="text-sm text-muted mt-3 max-w-xs leading-relaxed">Thank you. Someone from the Zephirin's family will contact you within 24 hours.</p>
+              <button onclick="resetForm()" class="btn-outline-dark mt-6 text-xs rounded-full px-5 py-2 font-semibold">Send another message</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. EARTHY FOOTER ============ -->
+    <footer class="bg-ink text-white border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-10">
+        <div class="grid md:grid-cols-12 gap-12">
+          
+          <div class="md:col-span-5">
+            <a href="#" class="flex items-center mb-6">
+              <img src="images/zephirin-bakeries-logo-white-text.png" alt="Zephirin's Bakery" class="h-[52px] w-auto" />
+            </a>
+            <p class="text-white/60 max-w-xs leading-relaxed text-[15px]">
+              Barbados' bakery since 1923 — fresh bread baked before sunrise and delivered to every parish on the island.
+            </p>
+            <div class="flex items-center gap-4 mt-8">
+              <a href="https://www.instagram.com/zephirinsbakeries/" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-orange hover:text-white transition-colors" aria-label="Instagram"><iconify-icon icon="ph:instagram-logo-bold"></iconify-icon></a>
+              <a href="https://www.facebook.com/zephirinsbakeries/" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-orange hover:text-white transition-colors" aria-label="Facebook"><iconify-icon icon="ph:facebook-logo-bold"></iconify-icon></a>
+            </div>
+          </div>
+
+          <div class="md:col-span-2">
+            <p class="eyebrow mb-5" style="color: var(--yellow);">Explore</p>
+            <ul class="space-y-3 text-white/60 text-sm font-medium">
+              <li><a href="bakery8.html" class="hover:text-white transition-colors font-normal">Bakery Products</a></li>
+              <li><a href="convenience8.html" class="hover:text-white transition-colors font-normal">Convenience Store</a></li>
+              <li><a href="recipes8.html" class="hover:text-white transition-colors font-normal">Recipes</a></li>
+              <li><a href="locator8.html" class="hover:text-white transition-colors font-normal">Locator</a></li>
+              <li><a href="about8.html" class="hover:text-white transition-colors font-normal">Heritage & Community</a></li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-2">
+            <p class="eyebrow mb-5" style="color: var(--yellow);">Company</p>
+            <ul class="space-y-3 text-white/60 text-sm font-medium">
+              <li><a href="about8.html" class="hover:text-white transition-colors font-normal">Heritage</a></li>
+              <li><a href="vacancies8.html" class="hover:text-white transition-colors font-normal">Careers &amp; Vacancies</a></li>
+              <li><a href="#" class="hover:text-white transition-colors font-normal">Privacy policy</a></li>
+              <li><a href="feedback8.html" class="hover:text-white transition-colors font-normal">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-3">
+            <p class="eyebrow mb-5" style="color: var(--yellow);">Headquarters</p>
+            <p class="text-white/60 leading-relaxed font-mono text-sm mb-4">
+              Tudor Bridge<br/>Saint Michael<br/>Barbados
+            </p>
+            <div class="w-full h-32 border border-white/10 rounded-xl overflow-hidden opacity-85 hover:opacity-100 transition-opacity">
+              <iframe 
+                src="https://maps.google.com/maps?q=Tudor%20Bridge,%20Saint%20Michael,%2520Barbados&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                class="w-full h-full border-0 filter invert-[0.9] hue-rotate-[180deg]" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+        
+        <div class="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-white/40 font-mono">
+          <p>Zephirin's Bakery · © 1923–2026. All rights reserved.</p>
+          <p class="flex items-center gap-2">
+            <iconify-icon icon="ph:sparkle-fill" class="text-yellow"></iconify-icon>
+            As fresh as the morning sunrise
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============ INTERACTIVE SCRIPTS ============ -->
+    <script>
+      // Mobile Nav Drawer Toggle
+      function toggleMobileNav() {
+        const menu = document.getElementById('mobile-nav-menu');
+        menu.classList.toggle('opacity-0');
+        menu.classList.toggle('pointer-events-none');
+        menu.classList.toggle('active');
+        
+        if (menu.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      }
+
+      // Flip box toggle for mobile/touch
+      function toggleFlip(card) {
+        if (window.innerWidth < 1024) {
+          card.classList.toggle('flipped');
+        }
+      }
+
+      // Stats section counter animations
+      let countersAnimated = false;
+      const statsSection = document.getElementById('stats-section');
+
+      function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+          const target = parseInt(counter.getAttribute('data-target'));
+          let current = 0;
+          const duration = 2000; // 2 seconds
+          const steps = 60;
+          const increment = target / steps;
+          const intervalTime = duration / steps;
+          
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              counter.innerText = target + (target === 50 ? "+" : (target === 300 ? "K" : ""));
+              clearInterval(timer);
+            } else {
+              counter.innerText = Math.floor(current) + (target === 300 ? "K" : "");
+            }
+          }, intervalTime);
+        });
+      }
+
+      // Trigger animations on scroll
+      window.addEventListener('scroll', function() {
+        if (!countersAnimated && statsSection) {
+          const rect = statsSection.getBoundingClientRect();
+          const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+          if (!(rect.bottom < 0 || rect.top - viewHeight >= 0)) {
+            countersAnimated = true;
+            animateCounters();
+          }
+        }
+      });
+
+      // Contact form submission
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        const successPanel = document.getElementById('form-success');
+        successPanel.classList.remove('hidden');
+        successPanel.classList.add('flex');
+        document.getElementById('stockist-form').reset();
+      }
+
+      function resetForm() {
+        const successPanel = document.getElementById('form-success');
+        successPanel.classList.add('hidden');
+        successPanel.classList.remove('flex');
+      }
+    </script>
+  </body>
+</html>
