@@ -100,6 +100,27 @@
         transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
       }
+
+      /* Slide visibility overrides to prevent overlapping text */
+      .slide {
+        opacity: 0 !important;
+        transition: opacity 1s ease-in-out;
+        -webkit-transition: opacity 1s ease-in-out;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .slide.active {
+        opacity: 1 !important;
+        pointer-events: auto;
+        z-index: 10;
+      }
+
+      /* Responsive position override for slider pagination dots on mobile */
+      @media (max-width: 767px) {
+        .slider-dots {
+          bottom: 230px !important;
+        }
+      }
     </style>
   </head>
   <body class="antialiased selection:bg-orange/20 selection:text-orange-deep">
@@ -178,11 +199,11 @@
             <p class="eyebrow mb-6 font-mono" style="color: var(--yellow); text-shadow: 0 2px 6px rgba(0,0,0,0.5);">Zephirin's Bakery · Barbados · Est. 1923</p>
             <h1 class="text-display max-w-4xl leading-none" style="text-shadow: 0 3px 15px rgba(0,0,0,0.65);">Redefining<br/>fresh bread.</h1>
             <p class="text-lead mt-7 max-w-xl" style="color: rgba(255, 255, 255, 0.9); text-shadow: 0 2px 10px rgba(0,0,0,0.55);">Elevating mornings across every parish — baked before sunrise, the same way since 1923.</p>
-            <div class="mt-10 flex items-center justify-center gap-4">
-              <a href="#about" class="border border-white hover:bg-white hover:text-ink text-white font-mono uppercase tracking-wider text-xs px-8 py-3.5 rounded-full transition-all duration-300">
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none mx-auto">
+              <a href="#about" class="w-full sm:w-auto text-center border border-white hover:bg-white hover:text-ink text-white font-mono uppercase tracking-wider text-[10px] sm:text-xs px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300">
                 More info
               </a>
-              <a href="bakery8.html" class="border border-white hover:bg-white hover:text-ink text-white font-mono uppercase tracking-wider text-xs px-8 py-3.5 rounded-full transition-all duration-300">
+              <a href="bakery8.html" class="w-full sm:w-auto text-center border border-white hover:bg-white hover:text-ink text-white font-mono uppercase tracking-wider text-[10px] sm:text-xs px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300">
                 Explore products
               </a>
             </div>
@@ -197,8 +218,8 @@
             <p class="eyebrow mb-6 font-mono" style="color: var(--yellow); text-shadow: 0 2px 6px rgba(0,0,0,0.5);">Proven by time · Baked daily</p>
             <h1 class="text-display max-w-4xl leading-none" style="text-shadow: 0 3px 15px rgba(0,0,0,0.65);">Baked fresh,<br/>proven with care.</h1>
             <p class="text-lead mt-7 max-w-xl" style="color: rgba(255, 255, 255, 0.9); text-shadow: 0 2px 10px rgba(0,0,0,0.55);">From the first proof to the last plate out the door — every batch gets our full attention before the island wakes.</p>
-            <div class="mt-10 flex items-center justify-center gap-4">
-              <a href="contact8.html" class="border border-white hover:bg-white hover:text-ink text-white font-mono uppercase tracking-wider text-xs px-8 py-3.5 rounded-full transition-all duration-300">
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none mx-auto">
+              <a href="contact8.html" class="w-full sm:w-auto text-center border border-white hover:bg-white hover:text-ink text-white font-mono uppercase tracking-wider text-[10px] sm:text-xs px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300">
                 Stock Zephrin's
               </a>
             </div>
@@ -213,15 +234,15 @@
             <p class="eyebrow mb-6 font-mono" style="color: var(--yellow); text-shadow: 0 2px 6px rgba(0,0,0,0.5);">Soft Buns · Bold Flavors</p>
             <h1 class="text-display max-w-4xl leading-none" style="text-shadow: 0 3px 15px rgba(0,0,0,0.65);">Crafted for<br/>every occasion.</h1>
             <p class="text-lead mt-7 max-w-xl" style="color: rgba(255, 255, 255, 0.9); text-shadow: 0 2px 10px rgba(0,0,0,0.55);">From neighborhood cookouts to family dinners, our soft whole wheat buns make every meal feel like home.</p>
-            <div class="mt-10 flex items-center justify-center gap-4">
-              <a href="bakery8.html" class="border border-white hover:bg-white hover:text-ink text-white font-mono uppercase tracking-wider text-xs px-8 py-3.5 rounded-full transition-all duration-300">
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none mx-auto">
+              <a href="bakery8.html" class="w-full sm:w-auto text-center border border-white hover:bg-white hover:text-ink text-white font-mono uppercase tracking-wider text-[10px] sm:text-xs px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300">
                 Explore products
               </a>
             </div>
           </div>
         </div>
       </div>
-
+ 
       <!-- Slider Controls -->
       <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 text-white flex items-center justify-center border border-white/10 hover:scale-105 transition-all duration-200" aria-label="Previous Slide">
         <iconify-icon icon="ph:caret-left-bold" class="text-xl"></iconify-icon>
@@ -229,9 +250,9 @@
       <button onclick="nextSlide()" class="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 text-white flex items-center justify-center border border-white/10 hover:scale-105 transition-all duration-200" aria-label="Next Slide">
         <iconify-icon icon="ph:caret-right-bold" class="text-xl"></iconify-icon>
       </button>
-
+ 
       <!-- Slider Indicators -->
-      <div class="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      <div class="slider-dots absolute bottom-28 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         <button id="slider-dot-0" onclick="setSlide(0)" class="slider-dot w-2.5 h-2.5 rounded-full bg-white/40 active-dot" aria-label="Go to slide 1"></button>
         <button id="slider-dot-1" onclick="setSlide(1)" class="slider-dot w-2.5 h-2.5 rounded-full bg-white/40" aria-label="Go to slide 2"></button>
         <button id="slider-dot-2" onclick="setSlide(2)" class="slider-dot w-2.5 h-2.5 rounded-full bg-white/40" aria-label="Go to slide 3"></button>

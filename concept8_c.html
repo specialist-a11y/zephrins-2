@@ -127,6 +127,20 @@
         transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
       }
+
+      /* Slide visibility overrides to prevent overlapping text */
+      .slide {
+        opacity: 0 !important;
+        transition: opacity 1s ease-in-out;
+        -webkit-transition: opacity 1s ease-in-out;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .slide.active {
+        opacity: 1 !important;
+        pointer-events: auto;
+        z-index: 10;
+      }
     </style>
   </head>
   <body class="antialiased selection:bg-orange/20 selection:text-orange-deep">
@@ -210,11 +224,11 @@
               <p class="eyebrow mb-2 lg:mb-5 text-orange eyebrow-rule">FINEST ARTISAN BAKES</p>
               <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-display font-medium leading-[1.15] text-ink mb-3 lg:mb-5">Savor the <span class="italic font-light text-yellow">sunrise</span> in every bite.</h1>
               <p class="text-xs sm:text-sm lg:text-base text-ink-2/90 font-light leading-relaxed mb-5 lg:mb-8 max-w-md">Barbados' premium heritage bakery since 1923. Experience daily fresh bakes delivered to every parish before the island wakes.</p>
-              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                <a href="bakery8.html" class="bg-orange hover:bg-orange-deep text-white font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300 shadow-md">
+              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 w-full max-w-xs lg:max-w-none mx-auto lg:mx-0">
+                <a href="bakery8.html" class="w-full sm:w-auto text-center bg-orange hover:bg-orange-deep text-white font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300 shadow-md animate-scaleUp">
                   Explore products
                 </a>
-                <a href="#about" class="border border-ink/20 hover:border-ink hover:bg-ink hover:text-white text-ink font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300">
+                <a href="#about" class="w-full sm:w-auto text-center border border-ink/20 hover:border-ink hover:bg-ink hover:text-white text-ink font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300">
                   Our Heritage
                 </a>
               </div>
@@ -237,11 +251,11 @@
               <p class="eyebrow mb-2 lg:mb-5 text-orange eyebrow-rule">PROVEN BY TIME · BAKED DAILY</p>
               <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-display font-medium leading-[1.15] text-ink mb-3 lg:mb-5">Proven by time, <span class="italic font-light text-yellow">baked</span> with care.</h1>
               <p class="text-xs sm:text-sm lg:text-base text-ink-2/90 font-light leading-relaxed mb-5 lg:mb-8 max-w-md">From the first proof to the last golden-brown loaf out the door — every batch gets our full attention before the island wakes.</p>
-              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                <a href="contact8.html" class="bg-orange hover:bg-orange-deep text-white font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300 shadow-md">
+              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 w-full max-w-xs lg:max-w-none mx-auto lg:mx-0">
+                <a href="contact8.html" class="w-full sm:w-auto text-center bg-orange hover:bg-orange-deep text-white font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300 shadow-md">
                   Stock Zephirin's
                 </a>
-                <a href="locator8.html" class="border border-ink/20 hover:border-ink hover:bg-ink hover:text-white text-ink font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300">
+                <a href="locator8.html" class="w-full sm:w-auto text-center border border-ink/20 hover:border-ink hover:bg-ink hover:text-white text-ink font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300">
                   Where to Find Us
                 </a>
               </div>
@@ -262,11 +276,11 @@
               <p class="eyebrow mb-2 lg:mb-5 text-orange eyebrow-rule">TRADITIONAL BAJAN TREATS</p>
               <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-display font-medium leading-[1.15] text-ink mb-3 lg:mb-5">Savor the sweetness of <span class="italic font-light text-yellow">island life</span>.</h1>
               <p class="text-xs sm:text-sm lg:text-base text-ink-2/90 font-light leading-relaxed mb-5 lg:mb-8 max-w-md">From classic coconut sweet bread to fresh turnovers and pastries, we bake Bajan morning traditions fresh daily.</p>
-              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                <a href="bakery8.html" class="bg-orange hover:bg-orange-deep text-white font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300 shadow-md">
+              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 w-full max-w-xs lg:max-w-none mx-auto lg:mx-0">
+                <a href="bakery8.html" class="w-full sm:w-auto text-center bg-orange hover:bg-orange-deep text-white font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300 shadow-md">
                   Explore products
                 </a>
-                <a href="recipes8.html" class="border border-ink/20 hover:border-ink hover:bg-ink hover:text-white text-ink font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300">
+                <a href="recipes8.html" class="w-full sm:w-auto text-center border border-ink/20 hover:border-ink hover:bg-ink hover:text-white text-ink font-mono uppercase tracking-wider text-[10px] lg:text-xs font-semibold px-6 lg:px-8 py-3 lg:py-3.5 rounded-full transition-all duration-300">
                   View Bajan recipes
                 </a>
               </div>
